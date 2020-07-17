@@ -1,4 +1,4 @@
-#University Portfolio
+# University Portfolio
 
 Online Portfolio showcasing university work and passion projects.
 
