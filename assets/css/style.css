@@ -356,12 +356,14 @@ h1, h2, h3, h4, h5, h6 {
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
-  padding-bottom: -200px;
+  /* padding: 16px; */
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
   text-align: left;
-  color: #fff;
+  color: #484E53;
   width: 100%;
-  background-color: #474d52;
+  background-color: #eee;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
@@ -1231,9 +1233,9 @@ section {
 }
 
 .portfolio-description2 h2 {
-  font-size: 26px;
+  /* font-size: 26px; */
   /*font-weight: 700;*/
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .portfolio-details .portfolio-description .portfolio-description2 p {
