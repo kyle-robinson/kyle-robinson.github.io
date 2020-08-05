@@ -112,32 +112,36 @@
             <p>The base game was created by following the tutorials on the LearnOpenGL website. This covered player input, sprite rendering, level maps, collisions, postprocessing, a particle system and more. Collision detection and resolution was likely the most complex technique to implement. AABB, or axis-aligned bounding box, collisions were required for the blocks but as for the ball, to ensure accuracy, a circular AABB variant was required. This solution required a bit more work, along with a different approach to collision repositioning to prevent the ball from passing through blocks unintentionally.<br/>The addition of a particle system was something that I had not previously implemented into a game. This was used to add a trial to the ball to make the game more visually interesting. Adding the powerups was also quite fun as each one needed to affect the game in a different way. The 'confuse' and 'chaos' powerups utilised postprocessing in a fun way to make the game harder to play. Aside from these features, sprite and text rendering, along with audio and level maps, are all implementations that I had worked with in previous projects.</p>
           <h2 style="font-size:20px">Additional Features</h2>
             <p>In order to make the game more unique, I first decided to re-sprite the entire game using sprites from the original 'Sonic the Hedgehog,' with audio also taken from the original trilogy. Following this, I expanded upon the particle system, so that when a block is destroyed, the player is given another form of feedback. I also expanded upon the sprite rendering and implemented a few additional postprocessing effects. Further, I also added additional menus, such as the Help menu, which the player can access to receive more information on the various game elements.</p>
+
+          <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
+          <div id="disqus_thread"></div> <br/>
+          <script>
+
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+          var disqus_config = function () {
+            this.page.url = 'https://kyle-robinson.co.uk/breakout';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = 7; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+
+          (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://https-kyle-robinson-co-uk.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <script id="dsq-count-scr" src="//https-kyle-robinson-co-uk.disqus.com/count.js" async></script>
+
         </div>
 
-        <div id="disqus_thread"></div>
-        <script>
-
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-        var disqus_config = function () {
-        this.page.url = https://kyle-robinson.co.uk/breakout;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 1; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://https-kyle-robinson-co-uk.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <!-- <script id="dsq-count-scr" src="//https-kyle-robinson-co-uk.disqus.com/count.js" async></script> -->
 
       </div>
     </section><!-- End Portfolio Details Section -->
+
 
   </main><!-- End #main -->
 
