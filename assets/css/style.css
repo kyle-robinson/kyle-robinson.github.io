@@ -1367,6 +1367,11 @@ section {
   color: #fff;
 }
 
+#contact .stackoverflow:hover {
+  background: #ef8236;
+  color: #fff;
+}
+
 #contact .php-email-form .validate {
   display: none;
   color: red;
