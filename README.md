@@ -4,7 +4,7 @@ Online Portfolio showcasing university work and passion projects.
 
 *Click image to view Online Portfolio*
 <a href="https://www.kyle-robinson.co.uk" target="_blank">
-        <img src="https://i.imgur.com/9anUuWE.png" alt="Sonic Breakout Thumbnail" width="800" height="450" border="10" />
+        <img src="assets/img/thumbnail.png" alt="Website Landing Page" border="10" />
 </a>
 
 ---
