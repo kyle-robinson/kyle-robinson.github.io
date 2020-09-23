@@ -407,6 +407,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.video-mobile {
+  display:none;
+}
+
+@media only screen and (max-width: 768px) {
+  .video {
+    display: none;
+  }
+  .video-mobile {
+    display: block;
+  }
+}
+
 #landing:before {
   content: "";
   background: rgba(0, 0, 0, 0.6);
@@ -441,7 +454,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   #landing h1 {
-    font-size: 28px;
+    font-size: 34px;
     line-height: 36px;
   }
 }
@@ -454,10 +467,14 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   #landing h2 {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 24px;
     margin-bottom: 30px;
   }
+}
+
+#landing a {
+
 }
 
 #landing .btn-get-started {
@@ -1298,7 +1315,7 @@ section {
 /* End of YouTube Video */
 
 #contact {
-  background: #fff;
+  /* background: #fff; */
   padding: 80px 0 40px 0;
 }
 
