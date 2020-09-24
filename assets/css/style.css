@@ -479,6 +479,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 85vh;
 }
 
+@media (max-width: 768px) {
+  #landing #contact {
+    padding-top: 75vh;
+  }
+}
+
 #landing .btn-get-started {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
