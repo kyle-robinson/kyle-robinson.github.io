@@ -473,36 +473,62 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-#landing #contact {
+#landing #links {
   position: absolute;
   display: inline-block;
   padding-top: 85vh;
+  background: none;
 }
 
-@media (max-width: 768px) {
-  #landing #contact {
-    padding-top: 75vh;
-  }
+.social-links {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-#landing .btn-get-started {
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
+.social-links a {
+  font-size: 18px;
   display: inline-block;
-  padding: 8px 28px;
-  border-radius: 50px;
-  transition: 0.5s;
-  margin: 10px;
-  border: 2px solid #fff;
+  background: #333;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+.github:hover {
+  background: #f4cbb2;
   color: #fff;
 }
 
-#landing .btn-get-started:hover {
-  background: #ff9d00;
-  border: 2px solid #ff9d00;
+.linkedin:hover {
+  background: #0072b1;
+  color: #fff;
+}
+
+.twitter:hover {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.youtube:hover {
+  background: #ff0000;
+  color: #fff;
+}
+
+.stackoverflow:hover {
+  background: #ef8236;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  #landing #links {
+    padding-top: 75vh;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1254,53 +1280,53 @@ section {
   }
 }
 
-/* Team Section
+/* social Section
 --------------------------------*/
-#team {
+#social {
   background: #fff;
-  padding: 80px 0 60px 0;
+  padding: 80px 0 40px 0;
 }
 
-#team .member {
+#social .member {
   text-align: center;
   margin-bottom: 20px;
 }
 
-#team .member .pic {
+#social .member .pic {
   margin-bottom: 15px;
   overflow: hidden;
   height: 260px;
 }
 
-#team .member .pic img {
+#social .member .pic img {
   max-width: 100%;
 }
 
-#team .member h4 {
+#social .member h4 {
   font-weight: 700;
   margin-bottom: 2px;
   font-size: 18px;
 }
 
-#team .member span {
+#social .member span {
   font-style: italic;
   display: block;
   font-size: 13px;
 }
 
-#team .member .social {
+#social .member .social {
   margin-top: 15px;
 }
 
-#team .member .social a {
+#social .member .social a {
   color: #b3b3b3;
 }
 
-#team .member .social a:hover {
+#social .member .social a:hover {
   color: #ff9d00;
 }
 
-#team .member .social i {
+#social .member .social i {
   font-size: 18px;
   margin: 0 2px;
 }
@@ -1323,13 +1349,8 @@ section {
 /* End of YouTube Video */
 
 #contact {
-  /* background: #fff; */
-  padding: 80px 0 40px 0;
-}
-
-#contact #google-map {
-  height: 300px;
-  margin-bottom: 20px;
+  /* background: #f7f7f7; */
+  padding: 40px 0 0px 0;
 }
 
 #contact .info {
@@ -1351,50 +1372,6 @@ section {
 
 #contact .info .email p {
   padding-top: 5px;
-}
-
-#contact .social-links {
-  padding-bottom: 20px;
-  text-align: center;
-}
-
-#contact .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-#contact .github:hover {
-  background: #f4cbb2;
-  color: #fff;
-}
-
-#contact .linkedin:hover {
-  background: #0072b1;
-  color: #fff;
-}
-
-#contact .twitter:hover {
-  background: #1da1f2;
-  color: #fff;
-}
-
-#contact .youtube:hover {
-  background: #ff0000;
-  color: #fff;
-}
-
-#contact .stackoverflow:hover {
-  background: #ef8236;
-  color: #fff;
 }
 
 #contact .php-email-form .validate {
@@ -1458,15 +1435,21 @@ section {
 }
 
 #contact .php-email-form button[type="submit"] {
-  background: #ff9d00;
-  border: 0;
+  border: 1px solid #ddd;
   padding: 10px 24px;
-  color: #fff;
-  transition: 0.4s;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  margin: 0 5px 10px 5px;
+  transition: all ease-in-out 0.3s;
+  background: white;
+  /* border-radius: 4px; */
 }
 
 #contact .php-email-form button[type="submit"]:hover {
-  background: #51d8ad;
+  background: #ff9d00;
+  color: #fff;
 }
 
 @-webkit-keyframes animate-loading {
