@@ -20,29 +20,29 @@
    var clickNo = 0;
 
   $( document ).ready(function () {
-                //$(".moreBox").slice(0, 3).show();
-                if ($(".blogBox:hidden").length != 0) {
-                        $("#loadMore").show();
-                }
-                $("#loadMore").on('click', function (e) {
-                        e.preventDefault();
-                        clickNo++;
+          //$(".moreBox").slice(0, 3).show();
+          if ($(".blogBox:hidden").length != 0) {
+                  $("#loadMore").show();
+          }
+          $("#loadMore").on('click', function (e) {
+                  e.preventDefault();
+                  clickNo++;
 
-                        switch (clickNo)
-                        {
-                          case 1:
-                            $(".moreBox:hidden").slice(0, 6).slideDown();
-                            break;
-                          case 2:
-                            $(".moreBox2:hidden").slice(0, 6).slideDown();
-                            break;
-                        }
+                  switch (clickNo)
+                  {
+                    case 1:
+                      $(".moreBox:hidden").slice(0, 6).slideDown();
+                      break;
+                    case 2:
+                      $(".moreBox2:hidden").slice(0, 6).slideDown();
+                      break;
+                  }
 
-                        if ($(".moreBox:hidden").length == 0 && clickNo == 2) {
-                                $("#loadMore").fadeOut('slow');
-                        }
-                });
-        });
+                  if ($(".moreBox:hidden").length == 0 && clickNo == 2) {
+                          $("#loadMore").fadeOut('slow');
+                  }
+          });
+  });
 
   // Typed-Text
   const typedTextSpan = document.querySelector(".typed-text");
