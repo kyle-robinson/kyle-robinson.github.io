@@ -42,6 +42,23 @@
                           $("#loadMore").fadeOut('slow');
                   }
           });
+
+          // Contact Form
+          $('.submit').click(function(event){
+            console.log('Button clicked');
+
+            var name = $('.name').val();
+            var email = $('.email').val();
+            var subject = $('.subject').val();
+            var message = $('.message').val();
+            var status_element = $('.status');
+            status_element.empty();
+
+            if (name.length >= 4 && email.includes('@') && email.includes('.') && email.length >= 5 && subject.length >= 8)
+            {
+              status_element.append('<div class="alert alert-success" role="alert">Your message has been sent. Thank you!</div>');
+            }
+          });
   });
 
   // Typed-Text

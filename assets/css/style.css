@@ -1358,7 +1358,7 @@ section {
 
 #contact {
   /* background: #f7f7f7; */
-  padding: 40px 0 0px 0;
+  padding: 20px 0 0px 0;
 }
 
 #contact .info {
@@ -1442,7 +1442,7 @@ section {
   background-color: #ff9d00;
 }
 
-#contact .php-email-form button[type="submit"] {
+#contact button[type="submit"] {
   border: 1px solid #ddd;
   padding: 10px 24px;
   cursor: pointer;
@@ -1452,12 +1452,65 @@ section {
   margin: 0 5px 10px 5px;
   transition: all ease-in-out 0.3s;
   background: white;
-  /* border-radius: 4px; */
+  border-radius: 4px;
 }
 
-#contact .php-email-form button[type="submit"]:hover {
+#contact button[type="submit"]:hover {
   background: #ff9d00;
   color: #fff;
+}
+
+#contact-form {
+  background: #f7f7f7;
+}
+
+#contact-form {
+  /* background: #fff; */
+  padding: 80px 0 40px 0;
+}
+
+#contact-form .member {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#contact-form .member .pic {
+  margin-bottom: 15px;
+  overflow: hidden;
+  height: 260px;
+}
+
+#contact-form .member .pic img {
+  max-width: 100%;
+}
+
+#contact-form .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+
+#contact-form .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+#contact-form .member .social {
+  margin-top: 15px;
+}
+
+#contact-form .member .social a {
+  color: #b3b3b3;
+}
+
+#contact-form .member .social a:hover {
+  color: #ff9d00;
+}
+
+#contact-form .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
 }
 
 @-webkit-keyframes animate-loading {
