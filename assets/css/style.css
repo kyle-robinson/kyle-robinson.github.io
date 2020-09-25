@@ -1166,7 +1166,9 @@ section {
   margin-bottom: 0;
 }
 
-#portfolio .portfolio-item .portfolio-info .github-link, #portfolio .portfolio-item .portfolio-info .details-link {
+#portfolio .portfolio-item .portfolio-info .github-link,
+#portfolio .portfolio-item .portfolio-info .details-link,
+#portfolio .portfolio-item .portfolio-info .youtube-link {
   position: absolute;
   right: 50px;
   transform: translate(0px, -25px);
@@ -1176,7 +1178,9 @@ section {
   transition: ease-in-out 0.3s;
 }
 
-#portfolio .portfolio-item .portfolio-info .github-link:hover, #portfolio .portfolio-item .portfolio-info .details-link:hover {
+#portfolio .portfolio-item .portfolio-info .github-link:hover,
+#portfolio .portfolio-item .portfolio-info .details-link:hover,
+#portfolio .portfolio-item .portfolio-info .youtube-link:hover {
   /* color: #a4ebd4; */
   /* color: #5b5b5b; */
   color: #f2cbb2;
@@ -1184,6 +1188,10 @@ section {
 
 #portfolio .portfolio-item .portfolio-info .details-link {
   right: 15px;
+}
+
+#portfolio .portfolio-item .portfolio-info .youtube-link {
+  right: 90px;
 }
 
 #portfolio .portfolio-item:hover img {
