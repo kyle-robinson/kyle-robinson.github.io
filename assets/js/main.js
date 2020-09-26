@@ -59,6 +59,8 @@
               status_element.append('<div class="alert alert-success" role="alert">Your message has been sent. Thank you!</div>');
             }
           });
+
+          history.pushState("", document.title, window.location.pathname);
   });
 
   // Typed-Text
