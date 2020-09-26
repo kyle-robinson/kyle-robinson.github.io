@@ -486,12 +486,12 @@ h1, h2, h3, h4, h5, h6 {
 #landing #links {
   position: absolute;
   display: inline-block;
-  padding-top: 85vh;
+  padding-top: 83vh;
   background: none;
 }
 
 .social-links {
-  padding-top: 20px;
+  padding-top: 40px;
   padding-left: 13px;
   padding-bottom: 20px;
   text-align: center;
