@@ -5,6 +5,16 @@
 * License: https://bootstrapmade.com/license/
 */
 
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background: #ff9d00;
+}
+
+::selection {
+  color: black;
+  background: #ff9d00;
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
