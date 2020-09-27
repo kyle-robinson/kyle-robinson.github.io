@@ -32,6 +32,6 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 
-RewriteRule ^Portfolios/(.*)$ /$1 [L,NC,R]
+RewriteRule ^portfolio/(.*)$ /$1 [L,NC,R]
 
 RewriteEngine off
