@@ -7,6 +7,9 @@
 !(function($) {
   "use strict";
 
+  // remove '#[name]' from URL
+  history.pushState("", document.title, window.location.pathname);
+
   // YouTube video
   var channelID = "UCU0mqPtBF4Z8TyZ3Pc6FPbQ";
   var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
@@ -59,8 +62,6 @@
               status_element.append('<div class="alert alert-success" role="alert">Your message has been sent. Thank you!</div>');
             }
           });
-
-          history.pushState("", document.title, window.location.pathname);
   });
 
   // Typed-Text
