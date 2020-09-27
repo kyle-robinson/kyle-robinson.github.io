@@ -24,3 +24,14 @@ RewriteCond %{THE_REQUEST} /index.html HTTP [NC]
 RewriteRule (.*)index.html$ /$1 [R=301,L]
 
 RewriteEngine off
+
+
+
+# remove 'portfolio' folder name form url
+Options +FollowSymLinks -MultiViews
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^Portfolios/(.*)$ /$1 [L,NC,R]
+
+RewriteEngine off
