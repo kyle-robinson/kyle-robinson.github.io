@@ -9,12 +9,3 @@ RewriteRule ^ /%1 [NC,L,R]
 
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^ %{REQUEST_URI}.html [NC,L]
-
-RewriteEngine off
-
-
-# remove index.html from URL
-Options +FollowSymLinks
-RewriteEngine On
-RewriteCond %{THE_REQUEST} /index.html HTTP [NC]
-RewriteRule (.*)index.html$ /$1 [R=301,L]
