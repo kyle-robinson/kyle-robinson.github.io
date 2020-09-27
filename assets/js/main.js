@@ -7,8 +7,14 @@
 !(function($) {
   "use strict";
 
+  var delayInMilliseconds = 1000; //1 second
+
+  setTimeout(function() {
+    history.pushState("", document.title, window.location.pathname);
+  }, delayInMilliseconds);
+
   // remove '#[name]' from URL
-  history.pushState("", document.title, window.location.pathname);
+  //history.pushState("", document.title, window.location.pathname);
 
   // YouTube video
   var channelID = "UCU0mqPtBF4Z8TyZ3Pc6FPbQ";
