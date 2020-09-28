@@ -1226,7 +1226,8 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: #1e8bc3;
+  /* color: #1e8bc3; */
+  color: #333;
 }
 
 #portfolio .portfolio-item .portfolio-info .github-link:hover {
