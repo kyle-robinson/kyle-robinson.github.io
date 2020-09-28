@@ -1189,11 +1189,11 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-pacman {
-  background: #f7ca18;
+  background: #ffcb05;
 }
 
 #portfolio .portfolio-item .portfolio-info-unity {
-  background: #913d88;
+  background: #8e44ad;
 }
 
 #portfolio .portfolio-item .portfolio-info-japanese {
@@ -1212,9 +1212,10 @@ section {
   margin-bottom: 0;
 }
 
-#portfolio .portfolio-item .portfolio-info .github-link,
 #portfolio .portfolio-item .portfolio-info .details-link,
-#portfolio .portfolio-item .portfolio-info .youtube-link {
+#portfolio .portfolio-item .portfolio-info .github-link,
+#portfolio .portfolio-item .portfolio-info .youtube-link,
+#portfolio .portfolio-item .portfolio-info .itch-link {
   position: absolute;
   right: 50px;
   transform: translate(0px, -25px);
@@ -1224,12 +1225,22 @@ section {
   transition: ease-in-out 0.3s;
 }
 
-#portfolio .portfolio-item .portfolio-info .github-link:hover,
-#portfolio .portfolio-item .portfolio-info .details-link:hover,
+#portfolio .portfolio-item .portfolio-info .details-link:hover {
+  color: #1e8bc3;
+}
+
+#portfolio .portfolio-item .portfolio-info .github-link:hover {
+  color: #333;
+}
+
 #portfolio .portfolio-item .portfolio-info .youtube-link:hover {
   /* color: #a4ebd4; */
   /* color: #5b5b5b; */
-  color: #f2cbb2;
+  color: #ff0000;
+}
+
+#portfolio .portfolio-item .portfolio-info .itch-link:hover {
+  color: #fa5c5c;
 }
 
 #portfolio .portfolio-item .portfolio-info .details-link {
