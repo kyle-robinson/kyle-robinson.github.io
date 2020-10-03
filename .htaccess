@@ -28,6 +28,10 @@ RewriteEngine off
 
 
 # remove folder from URL
+Options +FollowSymLinks
 RewriteEngine on
-RewriteCond %{REQUEST_URI} !^/(portfolio)
-RewriteRule (.*) /portfolio/$1
+
+RewriteCond %{THE_REQUEST} /portfolio HTTP [NC]
+RewriteRule (.*)portfolio$ /$1 [R=301,L]
+
+RewriteEngine off
