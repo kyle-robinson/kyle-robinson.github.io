@@ -24,15 +24,3 @@ RewriteCond %{THE_REQUEST} /index.html HTTP [NC]
 RewriteRule (.*)index.html$ /$1 [R=301,L]
 
 RewriteEngine off
-
-
-
-# remove folder from URL
-RewriteEngine on
-
-RewriteCond %{HTTP_HOST} ^kyle-robinson.co.uk$ [NC,OR]
-RewriteCond %{HTTP_HOST} ^www.kyle-robinson.co.uk$
-RewriteCond %{REQUEST_URI} !portfolio/
-RewriteRule (.*) /folder/$1 [L]
-
-RewriteEngine off
