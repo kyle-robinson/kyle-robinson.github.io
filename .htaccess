@@ -24,3 +24,15 @@ RewriteCond %{THE_REQUEST} /index.html HTTP [NC]
 RewriteRule (.*)index.html$ /$1 [R=301,L]
 
 RewriteEngine off
+
+
+
+# remove html folder from URL
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^html/(.*)$ /$1 [L,NC,R]
+
+RewriteEngine off
