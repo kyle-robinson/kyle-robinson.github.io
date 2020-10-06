@@ -28,11 +28,6 @@ RewriteEngine off
 
 
 # remove html folder from URL
-Options +FollowSymLinks -MultiViews
-# Turn mod_rewrite on
 RewriteEngine On
-RewriteBase /
-
-RewriteRule ^html/(.*)$ /$1 [L,NC,R]
-
+RewriteRule ^html/(.*)$ /$1 [L,R=301]
 RewriteEngine off
