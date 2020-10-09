@@ -172,12 +172,12 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.container-text h2 span.typed-text {
+.container-text h2 span.typed-text, .container-text h2 span.typed-text-loading {
   font-weight: normal;
   color: #ff9d00;
 }
 
-.container-text h2 span.cursor {
+.container-text h2 span.cursor, .container-text h2 span.cursor-loading {
   display: inline-block;
   /* background-color: #ccc; */
   margin-left: 0.1rem;

@@ -113,6 +113,49 @@
     if(textArray.length) setTimeout(type, newTextDelay + 250);
   });
 
+  // Typed-Text-Loading
+  const typedTextSpanLoading = document.querySelector(".typed-text-loading");
+  const cursorSpanLoading = document.querySelector(".cursor-loading");
+
+  const textArrayLoading = ["....."];
+  const typingDelayLoading = 200;
+  const erasingDelayLoading = 100;
+  const newTextDelayLoading = 2000; // Delay between current and next text
+  let textArrayIndexLoading = 0;
+  let charIndexLoading = 0;
+
+  function typeloading() {
+    if (charIndexLoading < textArrayLoading[textArrayIndexLoading].length) {
+      if(!cursorSpanLoading.classList.contains("typing")) cursorSpanLoading.classList.add("typing");
+      typedTextSpanLoading.textContent += textArrayLoading[textArrayIndexLoading].charAt(charIndexLoading);
+      charIndexLoading++;
+      setTimeout(typeloading, typingDelayLoading);
+    }
+    else {
+      cursorSpanLoading.classList.remove("typing");
+    	setTimeout(eraseloading, newTextDelayLoading);
+    }
+  }
+
+  function eraseloading() {
+  	if (charIndexLoading > 0) {
+      if(!cursorSpanLoading.classList.contains("typing")) cursorSpanLoading.classList.add("typing");
+      typedTextSpanLoading.textContent = textArrayLoading[textArrayIndexLoading].substring(0, charIndexLoading-1);
+      charIndexLoading--;
+      setTimeout(eraseloading, erasingDelayLoading);
+    }
+    else {
+      cursorSpanLoading.classList.remove("typing");
+      textArrayIndexLoading++;
+      if(textArrayIndexLoading>=textArrayLoading.length) textArrayIndexLoading=0;
+      setTimeout(typeloading, typingDelayLoading + 1100);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+    if(textArrayLoading.length) setTimeout(typeloading, newTextDelayLoading + 250);
+  });
+
   // Header fixed and Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
