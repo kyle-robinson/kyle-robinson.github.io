@@ -29,45 +29,45 @@
    var clickNo = 0;
 
   $( document ).ready(function () {
-          //$(".moreBox").slice(0, 3).show();
-          if ($(".blogBox:hidden").length != 0) {
-                  $("#loadMore").show();
-          }
-          $("#loadMore").on('click', function (e) {
-                  e.preventDefault();
-                  clickNo++;
+    //$(".moreBox").slice(0, 3).show();
+    if ($(".blogBox:hidden").length != 0) {
+            $("#loadMore").show();
+    }
+    $("#loadMore").on('click', function (e) {
+            e.preventDefault();
+            clickNo++;
 
-                  switch (clickNo)
-                  {
-                    case 1:
-                      $(".moreBox:hidden").slice(0, 6).slideDown();
-                      break;
-                    case 2:
-                      $(".moreBox2:hidden").slice(0, 6).slideDown();
-                      break;
-                  }
-
-                  if ($(".moreBox:hidden").length == 0 && clickNo == 2) {
-                          $("#loadMore").fadeOut('slow');
-                  }
-          });
-
-          // Contact Form
-          $('.submit').click(function(event){
-            console.log('Button clicked');
-
-            var name = $('.name').val();
-            var email = $('.email').val();
-            var subject = $('.subject').val();
-            var message = $('.message').val();
-            var status_element = $('.status');
-            status_element.empty();
-
-            if (name.length >= 4 && email.includes('@') && email.includes('.') && email.length >= 5 && subject.length >= 8)
+            switch (clickNo)
             {
-              status_element.append('<div class="alert alert-success" role="alert">Your message has been sent. Thank you!</div>');
+              case 1:
+                $(".moreBox:hidden").slice(0, 6).slideDown();
+                break;
+              case 2:
+                $(".moreBox2:hidden").slice(0, 6).slideDown();
+                break;
             }
-          });
+
+            if ($(".moreBox:hidden").length == 0 && clickNo == 2) {
+                    $("#loadMore").fadeOut('slow');
+            }
+    });
+
+    // Contact Form
+    $('.submit').click(function(event){
+      console.log('Button clicked');
+
+      var name = $('.name').val();
+      var email = $('.email').val();
+      var subject = $('.subject').val();
+      var message = $('.message').val();
+      var status_element = $('.status');
+      status_element.empty();
+
+      if (name.length >= 4 && email.includes('@') && email.includes('.') && email.length >= 5 && subject.length >= 8)
+      {
+        status_element.append('<div class="alert alert-success" role="alert">Your message has been sent. Thank you!</div>');
+      }
+    });
   });
 
   // Typed-Text

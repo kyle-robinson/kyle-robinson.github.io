@@ -29,7 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  
+
 </head>
 
 <body>
@@ -256,19 +256,28 @@
         <div class="section-header">
           <h3 class="section-title">Social</h3>
           <p class="section-description">As I often post any progress made on personal projects to my social media accounts, feel free to have a look at my various accounts.</p>
-          <p class="section-description">Below is an example of the most recent project that I have been working on, which can be found on my <span color="#ff9d00"><a href="https://www.youtube.com/channel/UCU0mqPtBF4Z8TyZ3Pc6FPbQ/">YouTube</a></span> channel along with many others. This is a dynamic video and updates automatically when a new post is made to my channel.</p>
+          <p class="section-description">Below is an example of the most recent project that I have been working on, which can be found on my <span color="#ff9d00"><a href="https://www.youtube.com/channel/UCU0mqPtBF4Z8TyZ3Pc6FPbQ/">YouTube</a></span> channel along with many others. Feel free to also browse my recent tweets, which mostly consist of gaming related content with the occasional work-related post.</p>
 
-          <!-- STATIC VIDEO -->
-          <div class="iframe-container">
-            <iframe width="1280" height="720" src="https://www.youtube.com/embed/kBCMbxa0S98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-8">
+                <!-- STATIC VIDEO -->
+                <div class="iframe-container">
+                  <iframe width="1280" height="720" src="https://www.youtube.com/embed/kBCMbxa0S98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <!-- DYNAMIC VIDEO -->
+                <!-- <div class="video-wrapper">
+                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                  <iframe id="youtube_video" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div> -->
+                <br>
+              </div>
+              <div class="col-lg-4 twitter-feed">
+                <a class="twitter-timeline" data-height="100%" href="https://twitter.com/KyleRobinson42?ref_src=twsrc%5Etfw">Tweets by KyleRobinson42</a>
+              </div>
+            </div>
           </div>
-
-          <!-- DYNAMIC VIDEO -->
-          <!-- <div class="video-wrapper">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <iframe id="youtube_video" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div> -->
-
         </div>
       </div>
     </section><!-- End Social Section -->
@@ -325,6 +334,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
