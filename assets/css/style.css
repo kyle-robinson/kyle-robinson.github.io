@@ -1220,6 +1220,25 @@ section {
   }
 }
 
+@media (min-width: 992px) {
+  .itch-prism
+  {
+    margin-top: 2%; !important
+  }
+  .itch-space
+  {
+    margin-top: 5%; !important
+  }
+}
+
+@media (max-width: 1200px) {
+  .itch-games
+  {
+    margin-top: 10px;
+    height: auto; !important
+  }
+}
+
 /* Contact Section
 --------------------------------*/
 /* YouTube Video */
