@@ -1044,6 +1044,10 @@ section {
   background: #ffcb05;
 }
 
+#portfolio .portfolio-item .portfolio-info-networking {
+  background: #f7ca18;
+}
+
 #portfolio .portfolio-item .portfolio-info-unity {
   background: #8e44ad;
 }
