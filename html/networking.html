@@ -64,7 +64,6 @@
           <div class="owl-carousel portfolio-details-carousel">
             <img src="../assets/img/networking/networking1.png" class="img-fluid" alt="">
             <img src="../assets/img/networking/networking2.png" class="img-fluid" alt="">
-            <!-- <img src="../assets/img/networking/networking3.png" class="img-fluid" alt=""> -->
           </div>
 
           <div class="portfolio-info">
@@ -81,7 +80,7 @@
 
         <div class="portfolio-description">
           <h2>Online Applications</h2>
-            <p>asdf</p>
+            <p>Created as part of my Concurrent Network Applications module in the first semester of my second year. The first task was to create a multithreaded chat application, using C# and the .NET framework, which would utilise socket programming and a client-server architecture which would allow for multiple clients to send and receive messages across the local network. The second task was to create a graphical application that would use the same architecture, but with the focus now on the synchronization of graphics across the local network.</p>
             <video width="35.65%" height="100%" controls style="align-items:center;border:1.1px solid #000">
               <source src="../assets/video/Chat_Demo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -91,10 +90,11 @@
                 Your browser does not support the video tag.
             </video> <br/> <br/>
           <h2 style="font-size:20px">How the Applications were Developed</h2>
-            <p>asdf</p>
+            <p>For both applications, a <strong>client-server architecture</strong> was utilised alongside a packet system, which would allow for both the clients and the server to send and receive packets of data. The TCP/IP protocol was used to make the initial connection between each client and the server, along with the sending of messages. <strong>UDP</strong> was used specifically for drawing on the canvas in the paint application since lost packets would not have had a noticeable impact on the graphics, and it has the added benefit that it is faster than TCP/IP which is an advantage in the synchronization of graphics.</p>
           <h2 style="font-size:20px">Additional Features</h2>
-            <p>asdf</p>
-
+            <p>Across both applications, several features were implemented, which the most essential being <strong>cryptography</strong>. This was added to both applications to protect the data between transmission of the clients and server. The synchronization of public and private keys for the encryption and decryption of data were required on both the client and server.<br/><br/>
+            Exclusive to the messaging system, a <strong>friends list</strong> was added with the option of sending private messages to a select friend. This required some work on the packet system to fully implement but can be seen from the provided video. A <strong>muting system</strong> was also added which would block messages from a specified client, or block the receiving of messages across all connected clients from a specified client which was a feature reserved for the administrator.<br/><br/>
+            Both applications also have the added feature of spawning more clients from the administrator instance. This allowed for the simple debugging of clients and helped to ensure that the server would not get overloaded when a large number of clients were connected and all sending messages to each other.</p>
           <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
           <div id="disqus_thread"></div> <br/>
           <script>
