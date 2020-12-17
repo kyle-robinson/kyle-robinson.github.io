@@ -89,7 +89,7 @@
               </div> <br/> <br/>
           <h2 style="font-size:20px">How the Game was Developed</h2>
             <p>
-              The base game was created by following the tutorials on the LearnOpenGL website. This covered player input, sprite rendering, level maps, collisions, postprocessing, a particle system and more. <strong>Collision detection</strong> and <strong>resolution</strong> was likely the most complex technique to implement. <strong>AABB</strong>, or axis-aligned bounding box, collisions were required for the blocks but as for the ball, to ensure accuracy, a circular AABB variant was required. This solution required a bit more work, along with a different approach to collision repositioning to prevent the ball from passing through blocks unintentionally.
+              The base game was created by following the tutorials on the LearnOpenGL website. This covered player input, sprite rendering, level maps, collisions, postprocessing, a particle system and more. <strong>Collision detection/resolution</strong> was likely the most complex technique to implement. <strong>AABB</strong>, or axis-aligned bounding box, collisions were required for the blocks but as for the ball, to ensure accuracy, a circular AABB variant was required. This solution required more work, with a different approach to collision repositioning to prevent the ball from passing through blocks unintentionally.
 
               <pre class="prettyprint">
  // AABB collision example
