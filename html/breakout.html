@@ -90,7 +90,15 @@
           <h2 style="font-size:20px">How the Game was Developed</h2>
             <p>
               The base game was created by following the tutorials on the LearnOpenGL website. This covered player input, sprite rendering, level maps, collisions, postprocessing, a particle system and more. <strong>Collision detection</strong> and <strong>resolution</strong> was likely the most complex technique to implement. <strong>AABB</strong>, or axis-aligned bounding box, collisions were required for the blocks but as for the ball, to ensure accuracy, a circular AABB variant was required. This solution required a bit more work, along with a different approach to collision repositioning to prevent the ball from passing through blocks unintentionally.
-              <br/><br/>
+
+              <pre class="prettyprint">
+ // AABB collision example
+ bool collisionX = one.Position.x + one.Size.x >= two.Position.x && two.Position.x + two.Size.x >= one.Position.x;
+ bool collisionY = one.Position.y + one.Size.y >= two.Position.y && two.Position.y + two.Size.y >= one.Position.y;
+
+ // return true if collision occurred on both axes
+ return collisionX && collisionY;</pre>
+
               The addition of a <strong>particle system</strong> was something that I had not previously implemented into a game. This was used to add a trial to the ball to make the game more visually interesting. Adding the powerups was also quite fun as each one needed to affect the game in a different way. The 'confuse' and 'chaos' powerups utilised <strong>postprocessing</strong> in a fun way to make the game harder to play. Aside from these features, sprite and text rendering, along with audio and level maps, are all implementations that I had worked with in previous projects.
             </p>
           <h2 style="font-size:20px">Additional Features</h2>
@@ -151,6 +159,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="../assets/vendor/jquery/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
