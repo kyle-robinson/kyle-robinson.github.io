@@ -51,6 +51,21 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+/* desert scheme ported from vim to google prettify */
+pre.prettyprint { display: block; background-color: #333 }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string  - pink */
+pre .kwd { color: #6bb9f0; font-weight: bold }
+pre .com { color: #87d37c } /* comment - medium aquamarine */
+pre .typ { color: #f5d76e } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #d2527f } /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
 /* Prelaoder */
 #preloader {
   position: fixed;
