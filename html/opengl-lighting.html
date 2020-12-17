@@ -92,7 +92,17 @@
           <h2 style="font-size:20px">What Did I Learn?</h2>
             <p>
               Among the first advanced OpenGL lighting techniques that I learned included shadow, normal and parallax mapping. While <strong>parallax mapping</strong> is an interesting technique, its use-case it quite uncommon in contrast to both <strong>normal mapping</strong> which is used for all textures that are loaded into a scene, and <strong>shadow mapping</strong> which is used to allow for all objects in a scene to cast shadows. Other important lighting techniques that I learned is bloom, deferred shading and <strong>SSAO</strong> (screen-space ambient occlusion). All of these techniques utilise framebuffers, one of the fundamental graphics programming techniques when it comes to lighting.
-              <br/><br/>
+
+              <pre class="prettyprint">
+ // create horizontal/vertical framebuffers needed for bloom
+ unsigned int colorBuffers[2];
+ glGenTextures( 2, colorBuffers );
+ for ( unsigned int i = 0; i < 2; i++ )
+ {
+      glBindTexture( GL_TEXTURE_2D, colorBuffers[i] );
+      glFramebufferTexture2D( GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, colorBuffers[i], 0 );
+ }</pre>
+
               As for the final and most important array of techniques that I learned among the advanced lighting section, was <strong>PBR</strong>. This topic covers both <strong>diffuse irradiance</strong> and <strong>specular IBL</strong> (image-based lighting) which are essential in creating realistic lighting effects for objects according to a number of parameters, such as its metallness, roughness and ambience. While normal mapping is important, taking these additional parameters into consideration at render time allows for even more realistic lighting.
             </p>
           <h2 style="font-size:20px">Future Projects</h2>
@@ -150,6 +160,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="../assets/vendor/jquery/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
