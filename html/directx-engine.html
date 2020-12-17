@@ -92,7 +92,7 @@
               While my initial aim was to learn the DirectX 11 API, I found that I learned even more about C++ with regards to how it can be used to dynamically bind states to the pipeline at runtime. <strong>Template metaprogramming</strong> along with <strong>perfect forwarding</strong> allowed for most of this to be achieved. Dynamically assigning different layouts to DirectX's constant buffers at runtime made for an effienct program that was easy to manage, making the incorporation of ImGui for the changing of these parameters a more simple task.
 
               <pre class="prettyprint">
- // dynamically create a constant buffer and add "blurColor" as a parameter
+ // dynamically create a layout and add "blurColor" as a parameter
  Dcb::RawLayout layout;
  layout.Add<Dcb::Float4>( "blurColor" );
 
