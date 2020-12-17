@@ -90,7 +90,19 @@
           <h2 style="font-size:20px">What Did I Learn?</h2>
             <p>
               While my initial aim was to learn the DirectX 11 API, I found that I learned even more about C++ with regards to how it can be used to dynamically bind states to the pipeline at runtime. <strong>Template metaprogramming</strong> along with <strong>perfect forwarding</strong> allowed for most of this to be achieved. Dynamically assigning different layouts to DirectX's constant buffers at runtime made for an effienct program that was easy to manage, making the incorporation of ImGui for the changing of these parameters a more simple task.
-              <br><br>
+
+              <pre class="prettyprint">
+ // dynamically create a constant buffer and add "blurColor" as a parameter
+ Dcb::RawLayout layout;
+ layout.Add<Dcb::Float4>( "blurColor" );
+
+ // move it into a buffer and assign it default values
+ auto buf = Dcb::Buffer( std::move( layout ) );
+ buf["blurColor"] = DirectX::XMFLOAT4{ 1.0f, 0.4f, 0.4f, 1.0f };
+
+ // add the constant as a bindable for the current step in the draw pass
+ draw.AddBindable( std::make_shared&lt;Bind::CachingPixelConstantBufferEx&gt;( gfx, buf, 1u ) );</pre>
+
               As for DirectX, I learned the general format of the pipeline and how to best abstract and encapsulate classes for use by the engine. I learned how to implement several features to the engine this way, including a <strong>scene graph</strong>, render graph along with a lighting system that incorporates <strong>shadow mapping</strong>. While I have implemented a shadow mapping system in OpenGL, I discovered that the DirectX method requires a lot more work, considering that it offers more control by default. With the addition of a cubemap, I also learned the method required to implement shadow mapping around a point light source, in all directions.
               <br><br>
               The importance of <strong>memory management</strong> was also something that became quite apparent while building this engine. Opting for smart pointers, using lambda functions, const references, virtual functions and appropriate scopes were all examples optimization techniques that were used to ensure the efficiency of the engine. Moving forward, I plan to gain a better understanding of these programming techniques so that I can use them more freely in the creation of future graphics engines.
@@ -150,6 +162,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="../assets/vendor/jquery/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
