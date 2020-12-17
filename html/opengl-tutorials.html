@@ -92,8 +92,17 @@
           <h2 style="font-size:20px">The Learning Process</h2>
             <p>
               After completing my first year on my Computer Games Programming course, I decided to further my knowledge by visiting the highly recommended LearnOpenGL website. Here I learned about the basics of <strong>shader programs</strong> and their various implementations. I also learned the process of layering textures, such as diffuse, specular and emissive maps to achieve more interesting results.
-              <br/><br/>
-              With regards to the earlier tutorials, I learned the importance of <strong>framebuffers</strong> and how they can be used alongside different kernels to create interesting post-processing effects. Among these techniques, there are still many more that I learned from this website, like stencil testing, cubemaps, geometry shaders, instancing, how to implement anti-aliasing, and how to load textured models. Regarding the implementation of these techniques, I was not previously familiar with any of the aforementioned.
+
+              <pre class="prettyprint">
+ // draw multiple instances of the rock meshes
+ for ( unsigned int i = 0; i < rock.meshes.size(); i++ )
+ {
+      glBindVertexArray( rock.meshes[i].VAO );
+      glDrawElementsInstanced( GL_TRIANGLES, rock.meshes[i].indices.size(), GL_UNSIGNED_INT, 0, amount );
+      glBindVertexArray( 0 );
+ }</pre>
+
+              With regards to the earlier tutorials, I learned the importance of <strong>framebuffers</strong> and how they can be used alongside different kernels to create interesting post-processing effects. Among these techniques, there are still many more that I learned from this website, like stencil testing, cubemaps, geometry shaders, <strong>instancing</strong>, how to implement anti-aliasing, and how to load textured models. Regarding the implementation of these techniques, I was not previously familiar with any of the aforementioned.
             </p>
           <h2 style="font-size:20px">Future Projects</h2>
             <p>
@@ -152,6 +161,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="../assets/vendor/jquery/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
