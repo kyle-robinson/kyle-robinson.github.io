@@ -524,7 +524,7 @@ pre .dec { color: #98fb98 } /* decimal         - lightgreen */
   background: #333;
   color: #fff;
   line-height: 1;
-  padding: 8px 0;
+  padding: 8.5px 0;
   border-radius: 50%;
   text-align: center;
   width: 36px;
@@ -533,7 +533,8 @@ pre .dec { color: #98fb98 } /* decimal         - lightgreen */
 }
 
 .github:hover {
-  background: #f4cbb2;
+  /* background: #f4cbb2; */
+  background: #6c7a89;
   color: #fff;
 }
 
@@ -554,6 +555,11 @@ pre .dec { color: #98fb98 } /* decimal         - lightgreen */
 
 .stackoverflow:hover {
   background: #ef8236;
+  color: #fff;
+}
+
+.hackerrank:hover {
+  background: #30C464;
   color: #fff;
 }
 
