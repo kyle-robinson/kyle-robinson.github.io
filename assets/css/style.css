@@ -124,6 +124,42 @@ pre .dec { color: #98fb98 } /* decimal         - lightgreen */
   }
 }
 
+/* TILE BUTTONS */
+
+.portfolio-button {
+  position: absolute;
+  display: block;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 7px 0px 10px 14px;
+  font-size: 16px;
+  border-radius: 2px;
+  width: 40px;
+  right: 15px;
+  bottom: 15px;
+  transition: background 0.5s;
+  border: 1px solid gray;
+}
+
+@media (max-width: 768px) {
+  .portfolio-button {
+    bottom: 15px;
+  }
+}
+
+.portfolio-button:focus {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  outline: none;
+}
+
+.portfolio-button:hover {
+  background: #ff9d00;
+  color: #fff;
+}
+
+/* TILE BUTTONS */
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -1044,11 +1080,11 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-directx {
-  background: #00c843;
+  background: #48A14D;
 }
 
 #portfolio .portfolio-item .portfolio-info-sonic {
-  background: #22a7f0;
+  background: #499DD0;
 }
 
 #portfolio .portfolio-item .portfolio-info-opengl-lighting {
@@ -1056,11 +1092,11 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-opengl {
-  background: #03c9a9;
+  background: #EBA937;
 }
 
 #portfolio .portfolio-item .portfolio-info-mario {
-  background: #f22613;
+  background: #D0494F;
 }
 
 #portfolio .portfolio-item .portfolio-info-cubes {
@@ -1072,11 +1108,11 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-networking {
-  background: #f7ca18;
+  background: #92639C;
 }
 
 #portfolio .portfolio-item .portfolio-info-unity {
-  background: #8e44ad;
+  background: #F74F86;
 }
 
 #portfolio .portfolio-item .portfolio-info-japanese {
