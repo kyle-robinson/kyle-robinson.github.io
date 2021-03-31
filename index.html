@@ -162,18 +162,27 @@
                     if(current_image.includes("directx-engine.png")){
                       document.getElementById("directx-picture").src = "assets/img/index/framework.png";
                     }else if(current_image.includes("framework.png")){
+                      document.getElementById("directx-picture").src = "assets/img/index/physics.png";
+                    }else if(current_image.includes("physics.png")){
                       document.getElementById("directx-picture").src = "assets/img/index/directx-engine.png";
                     }
 
                     // update which tile to display
                     var x = document.getElementById("directx-engine");
                     var y = document.getElementById("directx-framework");
+                    var z = document.getElementById("directx-physics");
                     if (x.style.display == "block") {
                       x.style.display = "none";
                       y.style.display = "block";
+                      z.style.display = "none";
+                    } else if (y.style.display == "block") {
+                      x.style.display = "none";
+                      y.style.display = "none";
+                      z.style.display = "block";
                     } else {
                       x.style.display = "block";
                       y.style.display = "none";
+                      z.style.display = "none";
                     }
                 }
               </script>
@@ -188,10 +197,18 @@
 
               <div id="directx-framework" style="display:none;">
                 <h4>Graphics Framework</h4>
-                <p style="padding-right:40px;">A graphics framework created using C++ and DirectX 11, which implements several 3D graphics techniques.</p>
+                <p style="padding-right:40px;">A graphics framework created using DirectX 11 that implements several 3D graphics techniques.</p>
                 <a href="https://youtu.be/_9_MtRrjU20" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
                 <a href="https://github.com/kyle-robinson/directx-framework" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
                 <a href="html/directx-framework" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+
+              <div id="directx-physics" style="display:none;">
+                <h4>Physics Framework</h4>
+                <p style="padding-right:40px;">A DirectX 11 physics framework that implements collisions, particles and rigid bodies.</p>
+                <a href="https://www.youtube.com/watch?v=23r29toUFZo" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
+                <a href="https://github.com/kyle-robinson/physics-framework" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+                <a href="html/directx-physics" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
 
             </div>
