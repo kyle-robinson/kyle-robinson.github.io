@@ -138,7 +138,7 @@ pre .dec { color: #98fb98 } /* decimal         - lightgreen */
   right: 15px;
   bottom: 15px;
   transition: background 0.5s;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 
 @media (max-width: 768px) {
