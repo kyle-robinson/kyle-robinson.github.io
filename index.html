@@ -155,7 +155,7 @@
           <!-- DirectX Tiles -->
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-dx">
-            <img id="directx-picture" src="assets/img/index/directx-engine.png" class="img-fluid" alt="">
+            <img id="directx-picture" src="assets/img/index/physics.png" class="img-fluid" alt="">
             <div class="portfolio-info portfolio-info-directx">
 
               <a href="javascript:void(0);" class="portfolio-button" onclick="directx_click()"><i class="fa fa-chevron-right"></i></a>
@@ -163,18 +163,18 @@
                 function directx_click() {
                     // update tile background image
                     var current_image = document.getElementById("directx-picture").src;
-                    if(current_image.includes("directx-engine.png")){
+                    if(current_image.includes("physics.png")){
                       document.getElementById("directx-picture").src = "assets/img/index/framework.png";
                     }else if(current_image.includes("framework.png")){
-                      document.getElementById("directx-picture").src = "assets/img/index/physics.png";
-                    }else if(current_image.includes("physics.png")){
                       document.getElementById("directx-picture").src = "assets/img/index/directx-engine.png";
+                    }else if(current_image.includes("directx-engine.png")){
+                      document.getElementById("directx-picture").src = "assets/img/index/physics.png";
                     }
 
                     // update which tile to display
-                    var x = document.getElementById("directx-engine");
+                    var x = document.getElementById("directx-physics");
                     var y = document.getElementById("directx-framework");
-                    var z = document.getElementById("directx-physics");
+                    var z = document.getElementById("directx-engine");
                     if (x.style.display == "block") {
                       x.style.display = "none";
                       y.style.display = "block";
@@ -191,12 +191,12 @@
                 }
               </script>
 
-              <div id="directx-engine" style="display:block;">
-                <h4>DirectX 11 Engine</h4>
-                <p style="padding-right:40px;">A graphics engine created using C++ and DirectX 11, based on the original HW3D engine by planetchili.</p>
-                <a href="https://www.youtube.com/watch?v=kBCMbxa0S98" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
-                <a href="https://github.com/kyle-robinson/directx-engine" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
-                <a href="html/directx-engine" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <div id="directx-physics" style="display:block;">
+                <h4>DirectX 11 Physics</h4>
+                <p style="padding-right:40px;">A DirectX 11 physics framework that implements collisions, particles and rigid bodies.</p>
+                <a href="https://www.youtube.com/watch?v=23r29toUFZo" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
+                <a href="https://github.com/kyle-robinson/physics-framework" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+                <a href="html/directx-physics" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
 
               <div id="directx-framework" style="display:none;">
@@ -207,12 +207,12 @@
                 <a href="html/directx-framework" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
 
-              <div id="directx-physics" style="display:none;">
-                <h4>DirectX 11 Physics</h4>
-                <p style="padding-right:40px;">A DirectX 11 physics framework that implements collisions, particles and rigid bodies.</p>
-                <a href="https://www.youtube.com/watch?v=23r29toUFZo" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
-                <a href="https://github.com/kyle-robinson/physics-framework" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
-                <a href="html/directx-physics" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <div id="directx-engine" style="display:none;">
+                <h4>DirectX 11 Engine</h4>
+                <p style="padding-right:40px;">A graphics engine created using C++ and DirectX 11, based on the original HW3D engine by planetchili.</p>
+                <a href="https://www.youtube.com/watch?v=kBCMbxa0S98" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
+                <a href="https://github.com/kyle-robinson/directx-engine" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+                <a href="html/directx-engine" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
 
             </div>
@@ -344,15 +344,15 @@
             <div class="row">
               <div class="col-lg-8">
                 <!-- STATIC VIDEO -->
-                <div class="iframe-container" style="margin-bottom:-62px;">
+                <!-- <div class="iframe-container" style="margin-bottom:-62px;">
                   <iframe width="1280" height="720" src="https://www.youtube.com/embed/kBCMbxa0S98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                </div> -->
 
                 <!-- DYNAMIC VIDEO -->
-                <!-- <div class="video-wrapper">
+                <div class="iframe-container" style="margin-bottom:-62px;">
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                   <iframe id="youtube_video" width="100%" height="100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div> -->
+                </div>
                 <br>
               </div>
               <div class="col-lg-4 twitter-feed" style="margin-bottom:-38px; outline:1px solid gainsboro;">
