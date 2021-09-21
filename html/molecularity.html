@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kyle Robinson - Molecularity</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/person.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f585aa18f8.js" crossorigin="anonymous"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="../#landing">Home</a></li>
+          <li><a href="../#about">About Me</a></li>
+          <li class="menu-active2"><a href="#main">Portfolio</a></li>
+          <li><a href="../#social">Social</a></li>
+          <!-- <li><a href="../#contact-form">Contact</a></li> -->
+          <li><a href="../assets/Kyle Robinson CV.pdf" target="_blank">C.V.</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+      </div>
+    </section>
+    <!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="owl-carousel portfolio-details-carousel">
+            <img src="../assets/img/molecularity/title.png" class="img-fluid" alt="">
+            <img src="../assets/img/molecularity/level1.jpg" class="img-fluid" alt="">
+            <img src="../assets/img/molecularity/settings.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="portfolio-info">
+            <h3>Project Information</h3>
+            <ul>
+              <li><strong>Language</strong>: C++</li>
+              <li><strong>Graphics API</strong>: DirectX 11</li>
+              <li><strong>Creation</strong>: Spring 2021</li>
+              <li><strong>Source URL</strong>: <a href="https://github.com/kyle-robinson/molecularity">Github Page</a></li>
+            </ul>
+          </div>
+
+        </div> <br/>
+
+        <div class="portfolio-description">
+          <h2>Group Project: Molecularity</h2>
+            <p>
+              As part of a series of summer projects, and following the creation of my OpenGL projects, I decided to see what I could learn regarding the DirectX 11 graphics API. Consequently, I followed <a href="https://planetchili.net/">Planet Chili</a>'s DirectX programming tutorials to achieve a foundational understanding. Completing the tutorials taught me a lot about the uses of DirectX and how various C++ programming techniques can be used to further improve the efficiency of the engine, such as perfect forwarding, template metaprogramming. A video of the completed engine is shown below.
+            </p>
+              <div class="iframe-container">
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/kBCMbxa0S98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div> <br/> <br/>
+          <h2 style="font-size:20px">What Did I Learn?</h2>
+            <p>
+              While my initial aim was to learn the DirectX 11 API, I found that I learned even more about C++ with regards to how it can be used to dynamically bind states to the pipeline at runtime. <strong>Template metaprogramming</strong> along with <strong>perfect forwarding</strong> allowed for most of this to be achieved. Dynamically assigning different layouts to DirectX's constant buffers at runtime made for an effienct program that was easy to manage, making the incorporation of ImGui for the changing of these parameters a more simple task.
+
+              <pre class="prettyprint">
+ // dynamically create a layout and add "blurColor" as a parameter
+ Dcb::RawLayout layout;
+ layout.Add<Dcb::Float4>( "blurColor" );
+
+ // move it into a buffer and assign it default values
+ auto buf = Dcb::Buffer( std::move( layout ) );
+ buf["blurColor"] = DirectX::XMFLOAT4{ 1.0f, 0.4f, 0.4f, 1.0f };
+
+ // add the constant as a bindable for the current step in the draw pass
+ draw.AddBindable( std::make_shared&lt;Bind::CachingPixelConstantBufferEx&gt;( gfx, buf, 1u ) );</pre>
+
+              As for DirectX, I learned the general format of the pipeline and how to best abstract and encapsulate classes for use by the engine. I learned how to implement several features to the engine this way, including a <strong>scene graph</strong>, render graph along with a lighting system that incorporates <strong>shadow mapping</strong>. While I have implemented a shadow mapping system in OpenGL, I discovered that the DirectX method requires a lot more work, considering that it offers more control by default. With the addition of a cubemap, I also learned the method required to implement shadow mapping around a point light source, in all directions.
+              <br><br>
+              The importance of <strong>memory management</strong> was also something that became quite apparent while building this engine. Opting for smart pointers, using lambda functions, const references, virtual functions and appropriate scopes were all examples optimization techniques that were used to ensure the efficiency of the engine. Moving forward, I plan to gain a better understanding of these programming techniques so that I can use them more freely in the creation of future graphics engines.
+            </p>
+          <h2 style="font-size:20px">Future Additions</h2>
+            <p>
+              With my newfound knowledge of DirectX and some of the more advanced C++ programming techniques, I plan to adapt this graphics engine with new features and optimizations. The implementation of <strong>multi-threading</strong> would likely be the greatest optimization to the graphics engine, as several processes, such as concurrent model loading which could be achieved by dividing the work across multiple threads simultaneously. This would also allow for more options at runtime, as new models could be instantiated at runtime would halting the engine.
+            </p>
+
+            <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
+            <div id="disqus_thread"></div> <br/>
+            <script>
+
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+            var disqus_config = function () {
+              this.page.url = 'https://kyle-robinson.co.uk/html/directx-engine';  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = 8; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://https-kyle-robinson-co-uk.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <script id="dsq-count-scr" src="//https-kyle-robinson-co-uk.disqus.com/count.js" async></script>
+
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact">
+    <div class="social-links" style="margin-top:-55px;">
+      <a href="https://github.com/kyle-robinson" class="github" target="_blank"><i class="fa fa-github"></i></a> &nbsp;
+      <a href="https://www.linkedin.com/in/kylerobinsongames/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a> &nbsp;
+      <a href="https://www.hackerrank.com/kylerobinson456?hr_r=1" class="hackerrank" target="_blank"><i class="fab fa-hackerrank"></i></a> &nbsp;
+      <a href="https://stackoverflow.com/users/story/14250876" class="stackoverflow" target="_blank"><i class="fa fa-stack-overflow"></i></a> &nbsp;
+      <a href="https://twitter.com/KyleRobinson42" class="twitter"><i class="fa fa-twitter" target="_blank"></i></a> &nbsp;
+      <a href="https://www.youtube.com/channel/UCU0mqPtBF4Z8TyZ3Pc6FPbQ/" class="youtube" target="_blank"><i class="fa fa-youtube"></i></a> &nbsp;
+    </div>
+  </section><!-- End Contact Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="credits">
+        &copy; KYLE <span style="color:#ff9d00">ROBINSON</span> | PORTFOLIO
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/counterup/counterup.min.js"></script>
+  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/superfish/superfish.min.js"></script>
+  <script src="../assets/vendor/hoverIntent/hoverIntent.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
