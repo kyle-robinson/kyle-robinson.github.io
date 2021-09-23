@@ -63,9 +63,9 @@
         <div class="portfolio-details-container">
 
           <div class="owl-carousel portfolio-details-carousel">
-            <img src="../assets/img/molecularity/title.png" class="img-fluid" alt="">
-            <img src="../assets/img/molecularity/level1.jpg" class="img-fluid" alt="">
-            <img src="../assets/img/molecularity/settings.png" class="img-fluid" alt="">
+            <img src="../assets/img/molecularity/level2_small.jpg" class="img-fluid" alt="">
+            <img src="../assets/img/molecularity/level1_small.jpg" class="img-fluid" alt="">
+            <img src="../assets/img/molecularity/settings_small.png" class="img-fluid" alt="">
           </div>
 
           <div class="portfolio-info">
@@ -83,34 +83,80 @@
         <div class="portfolio-description">
           <h2>Group Project: Molecularity</h2>
             <p>
-              As part of a series of summer projects, and following the creation of my OpenGL projects, I decided to see what I could learn regarding the DirectX 11 graphics API. Consequently, I followed <a href="https://planetchili.net/">Planet Chili</a>'s DirectX programming tutorials to achieve a foundational understanding. Completing the tutorials taught me a lot about the uses of DirectX and how various C++ programming techniques can be used to further improve the efficiency of the engine, such as perfect forwarding, template metaprogramming. A video of the completed engine is shown below.
+              Created as part of a group, Molecularity is a puzzle game, similar in nature to Portal, that was developed entirely with C++ and DirectX 11, for a module at university in the Spring of my second year. <strong><i>The goal of the game is to utilise the provided multi-tool and all of its in-built functions to manipulate and modify the physical properties of objects within each room.</i></strong> The player is given the ability to change the material, weight, size, bounciness, conductivity etc. of select objects. In doing this, they are tasked with activating a pressure plate in each level which serves as the win condition. The underlying engine utilises a variety of systems that were developed across the members of the group while adhering to standard programming practices.
             </p>
               <div class="iframe-container">
-                <iframe width="1280" height="720" src="https://www.youtube.com/embed/kBCMbxa0S98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div> <br/> <br/>
-          <h2 style="font-size:20px">What Did I Learn?</h2>
+                <div style="padding:54.27% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/558943103?h=0eefe5683a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Molecularity"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+              </div> <br/>
+          <h2 style="font-size:20px">Roles & Responsibilities</h2>
             <p>
-              While my initial aim was to learn the DirectX 11 API, I found that I learned even more about C++ with regards to how it can be used to dynamically bind states to the pipeline at runtime. <strong>Template metaprogramming</strong> along with <strong>perfect forwarding</strong> allowed for most of this to be achieved. Dynamically assigning different layouts to DirectX's constant buffers at runtime made for an effienct program that was easy to manage, making the incorporation of ImGui for the changing of these parameters a more simple task.
+              Within the group, I took on the role of <strong>lead programmer</strong> and was in charge of overseeing the development of all of the systems within the game engine, and ensuring that they adhered to standard programming practices and patterns. Further, I outlaid the design of the system architecture according to a series of deliverables that would be distributed to each group member, myself included, according to what best suited our interests and expertise. As my area of expertise lies with <strong>graphics programming</strong>, I opted to develop all of the graphics systems that are used throughout the game. For assigning tasks, Trello was used throughout the game's development. To see how these tasks were distributed, our personal Trello board can be found <a href="https://trello.com/b/V0FSI5Hy/molecularity-progress-board">here</a>.
+              <br/><br/>
+              For managing the source code, GitHub's <strong>source control</strong> was the primary tool that we used. This enabled us to create local branches of the main codebase, without affecting the work of other group members. I initially developed a barebones system using Win32 for message processing which allowed everyone to start developing their systems after creating a local branch of the source code. GitHub proved extremely useful in the development of these new systems as it allowed each team member to view what everyone else was working on. This was especially true when it came to debugging. Once a team member was satisfied with their work, they would submit a pull request which I would always personally verify, to ensure that there were no conflicts with the existing code, before committing it to the master branch. All the pull requests made throughout the development of the game can be found <a href="https://github.com/kyle-robinson/molecularity/pulls?q=is%3Apr+is%3Aclosed">here</a>.
+            </p>
+          <h2 style="font-size:20px">Idea Generation</h2>
+            <p>
+              To begin laying the groundwork, we began with a team meeting to decide the type and style of game that we wanted to create: a <strong>futuristic puzzle game</strong> seemed to be unanimous. To further develop this idea, I assigned weekly research tasks to each team member concerning different aspects of the game; art, sound, mechanics, models and UI. Each week, we would share our findings and commit this research to a <a href="../assets/docs/Molecularity Design Documentation.pdf", target="_blank">design document</a>. We would draw influence from existing game implementations as we saw fit, where the art style and the multi-tool were derived from Portal. We then created an <a href="../assets/docs/Molecularity Initial Presentation.pdf", target="_blank">initial design presentation</a> that shared our thoughts and ideas of the game to be developed.
+            </p>
+          <h2 style="font-size:20px">The Development Process</h2>
+            <p>
+              The development process began with a barebones Win32 system that created a simple window with minimal graphics. After developing this system for the first two weeks, and using team meetings solely to discuss the game idea, I then assigned individual roles to develop specific parts of the game engine. Initially, these systems were coupled with the graphics engine, and after some time a better solution was implemented: an <strong>event system</strong>, to better decouple the various systems and to allow for easier branching and development as outlined <a href="https://gameprogrammingpatterns.com/event-queue.html">here<a>. The general layout for the event system that was implemented is as shown below.
 
               <pre class="prettyprint">
- // dynamically create a layout and add "blurColor" as a parameter
- Dcb::RawLayout layout;
- layout.Add<Dcb::Float4>( "blurColor" );
+class EventSystem
+{
+public:
+	void AddClient( EVENTID eventid, Listener* client ); // Registers client to specific event
+	bool IsRegistered( EVENTID eventid, Listener* client ); // Checks if the client in question is already in the system
 
- // move it into a buffer and assign it default values
- auto buf = Dcb::Buffer( std::move( layout ) );
- buf["blurColor"] = DirectX::XMFLOAT4{ 1.0f, 0.4f, 0.4f, 1.0f };
+        void RemoveClient( EVENTID eventid, Listener* client ); // Unregisters client from a specific event
+	void RemoveAll( Listener* client ); // Unregisters client from all events
 
- // add the constant as a bindable for the current step in the draw pass
- draw.AddBindable( std::make_shared&lt;Bind::CachingPixelConstantBufferEx&gt;( gfx, buf, 1u ) );</pre>
+	void SendEvents( Event* event ); // Sends the event to anyone registered
+	void AddEvent( EVENTID eventid, void* data = 0 ); // Add event to the buffer
+	void ProcessEvents(); // Process All events
 
-              As for DirectX, I learned the general format of the pipeline and how to best abstract and encapsulate classes for use by the engine. I learned how to implement several features to the engine this way, including a <strong>scene graph</strong>, render graph along with a lighting system that incorporates <strong>shadow mapping</strong>. While I have implemented a shadow mapping system in OpenGL, I discovered that the DirectX method requires a lot more work, considering that it offers more control by default. With the addition of a cubemap, I also learned the method required to implement shadow mapping around a point light source, in all directions.
+	void ClearBuffer(); // Clears all events from the buffer
+	void ClearClients(); // Clears all clients from the client list
+	void Shutdown(); // Shutdown event system
+
+	static EventSystem* Instance(); // Returns the event system
+private:
+	EventSystem() {};
+	~EventSystem() { this->Shutdown(); }
+
+	std::multimap<EVENTID, Listener*> clients; // Contains all clients and their subscribed events
+	std::list<Event> eventsList; // List of events to process
+};</pre>
+
+              The event system enabled us to better focus on the development of our systems without the worry of how they would integrate into the rest of the game engine. Instead, we were able to modify code and submit pull requests to the master branch with minimal conflicts due to the now decoupled nature of the codebase. Using this, I was able to better implement the lighting, fog, stencil, post-processing and multi-viewport systems. One final problem remained with the way that levels were being handled. To better manage switching between and loading levels, I opted to integrate a level state machine, according to the following <a href="https://thatgamesguy.co.uk/cpp-game-dev-6/">article</a> which can be seen below.
+
               <br><br>
-              The importance of <strong>memory management</strong> was also something that became quite apparent while building this engine. Opting for smart pointers, using lambda functions, const references, virtual functions and appropriate scopes were all examples optimization techniques that were used to ensure the efficiency of the engine. Moving forward, I plan to gain a better understanding of these programming techniques so that I can use them more freely in the creation of future graphics engines.
+              <pre class="prettyprint">
+class LevelStateMachine
+{
+public:
+	LevelStateMachine();
+	void Render();
+	void Update( const float dt );
+
+	std::shared_ptr<LevelContainer> GetCurrentLevel() const noexcept { return currentLevel; } // Get a handle to the current active level
+	uint32_t Add( std::shared_ptr<LevelContainer> level ); // Add another level to the state machine
+	void Remove( uint32_t id ); // Removes a level from the state machine
+	void SwitchTo( uint32_t id ); // Switch to an already exisiting level
+private:
+	uint32_t insertedLevelID;
+	std::shared_ptr<LevelContainer> currentLevel;
+	std::unordered_map<uint32_t, std::shared_ptr<LevelContainer>> levels; // Stores all of the registered levels
+};</pre>
+
+              <strong>Multi-threading</strong> was then implemented to improve the transition times between levels, as the loading of new levels would be offloaded to a separate thread, and only for the level that is to be switched to. This addition drastically helped in the creation of new levels, as we were able to quickly switch between the levels on the fly in-engine, and check for any inconsistencies, bugs or exploits. A <a href="../assets/docs/Molecularity Development Diary.pdf", target="_blank">development diary</a> was updated throughout the development process to document the weekly additions to the game.
             </p>
-          <h2 style="font-size:20px">Future Additions</h2>
+          <h2 style="font-size:20px">Final Thoughts</h2>
             <p>
-              With my newfound knowledge of DirectX and some of the more advanced C++ programming techniques, I plan to adapt this graphics engine with new features and optimizations. The implementation of <strong>multi-threading</strong> would likely be the greatest optimization to the graphics engine, as several processes, such as concurrent model loading which could be achieved by dividing the work across multiple threads simultaneously. This would also allow for more options at runtime, as new models could be instantiated at runtime would halting the engine.
+              I believe my team and I worked well together. We were able to cooperate on the game's development and focus on our parts of the engine when required. Group discussions were also really involved and often resulted in a lot of new ideas for potential mechanics and systems to be added into the game. the team respected my decisions on the game's direction, the engine architecture, the responsibilities that I would assign them and the deadlines that I would set for any given task. They also trusted me to verify each pull request and would often ask for advice on parts of the engine that they were unsure of.
+              <br><br>
+              Given that our team was able to complete the majority of the set deliverables, we completed the project with enough time before the final deadline to complete further bug tests. A <a href="../assets/docs/Molecularity Final Presentation.pdf", target="_blank">final presentation</a> with a complimentary video was created and feedback provided by industry professionals. Overall, it was a really enjoyable experience and I learned a lot, not just about programming, but also project management and working as part of a team.
             </p>
 
             <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
