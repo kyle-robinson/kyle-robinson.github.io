@@ -1083,8 +1083,20 @@ section {
   background: #6ab04c;
 }
 
+#portfolio .portfolio-item .portfolio-info-dxgraphics {
+  background: #ff3838;
+}
+
+#portfolio .portfolio-item .portfolio-info-dxphysics {
+  background: #ff9f1a;
+}
+
 #portfolio .portfolio-item .portfolio-info-sonic {
-  background: #22a6b3;
+  background: #67e6dc;
+}
+
+#portfolio .portfolio-item .portfolio-info-molecularity {
+  background: #18dcff;
 }
 
 #portfolio .portfolio-item .portfolio-info-opengl-lighting {
@@ -1092,11 +1104,15 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-opengl {
-  background: #f0932b;
+  background: #ffaf40;
 }
 
 #portfolio .portfolio-item .portfolio-info-mario {
-  background: #eb4d4b;
+  background: #ff4d4d;
+}
+
+#portfolio .portfolio-item .portfolio-info-ai {
+  background: #7ed6df;
 }
 
 #portfolio .portfolio-item .portfolio-info-cubes {
@@ -1108,11 +1124,11 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-networking {
-  background: #6c5ce7;
+  background: #ffbe76;
 }
 
 #portfolio .portfolio-item .portfolio-info-unity {
-  background: #e84393;
+  background: #ff7979;
 }
 
 #portfolio .portfolio-item .portfolio-info-japanese {
@@ -1138,6 +1154,7 @@ section {
 #portfolio .portfolio-item .portfolio-info .details-link,
 #portfolio .portfolio-item .portfolio-info .github-link,
 #portfolio .portfolio-item .portfolio-info .youtube-link,
+#portfolio .portfolio-item .portfolio-info .vimeo-link,
 #portfolio .portfolio-item .portfolio-info .itch-link {
   position: absolute;
   right: 50px;
@@ -1164,10 +1181,14 @@ section {
   color: #ff0000;
 }
 
+#portfolio .portfolio-item .portfolio-info .vimeo-link:hover {
+  color: #86c9ef;
+}
+
 #portfolio .portfolio-item .portfolio-info .itch-link:hover {
   /* color: #fa5c5c; */
   /* color: #ff9d00; */
-  color: #badc58;
+  color: #ff0000;
 }
 
 #portfolio .portfolio-item .portfolio-info .details-link {
@@ -1175,6 +1196,10 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info .youtube-link {
+  right: 90px;
+}
+
+#portfolio .portfolio-item .portfolio-info .vimeo-link {
   right: 90px;
 }
 

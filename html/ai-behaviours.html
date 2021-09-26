@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kyle Robinson - A.I. Behaviours</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/person.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f585aa18f8.js" crossorigin="anonymous"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+  <style>li.split:not(:last-child) { margin-bottom: 10px; }</style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="../#landing">Home</a></li>
+          <li><a href="../#about">About Me</a></li>
+          <li class="menu-active2"><a href="#main">Portfolio</a></li>
+          <li><a href="../#social">Social</a></li>
+          <!-- <li><a href="../#contact-form">Contact</a></li> -->
+          <li><a href="../assets/Kyle Robinson CV.pdf" target="_blank">C.V.</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+      </div>
+    </section>
+    <!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="owl-carousel portfolio-details-carousel">
+            <img src="../assets/img/ai/ai-1.png" class="img-fluid" alt="">
+            <img src="../assets/img/ai/ai-2.png" class="img-fluid" alt="">
+            <img src="../assets/img/ai/ai-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="portfolio-info">
+            <h3>Project Information</h3>
+            <ul>
+              <li><strong>Language</strong>: C++</li>
+              <li><strong>Graphics API</strong>: DirectX 11</li>
+              <li><strong>Creation</strong>: Spring 2021</li>
+              <li><strong>Source URL</strong>: <a href="https://github.com/kyle-robinson/ai-framework">Github Page</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <br>
+        <div class="portfolio-description">
+          <h2>A.I. Behaviours</h2>
+            <p>
+              Created as part of my <strong>Artificial Intelligence in Games</strong> module, <strong><i>the task was to demonstrate various steering behaviours; seek, flee, arrive, pursuit, obstacle avoidance and wander</i></strong>. I was also required to demonstrate a path-finding behaviour, where the vehicle would construct a path from its current position to the next node along the racetrack using the <strong>A* algorithm</strong> without going off-road. Examples of decision-making were also required, like where the vehicle should avoid obstacles, collect pickups, or slow down when turning a corner so that it will be able to complete the manoeuvre. A second dodge car was also required to demonstrate some of the aforementioned behaviours such as pursuit, where it would follow the original car around the racetrack.
+            </p>
+          <h2 style="font-size:20px">What Did I Learn?</h2>
+            <p>
+              For this assignment, I learned a lot about the various steering behaviours and their implementations. I used a <strong>physics based system</strong> to demonstrate more gradual movements around the racetrack. As <strong><i>any given behaviour uses the physics system to apply a force in a given direction</i></strong>, this meant that most of the behaviours could be used simultaneously, with forces being applied from different directions resulting in a final direction which the car would then face. Some of the behaviours would need priority over others, however, as they would cause unnatural movements. Giving less priority to obstacle avoidance, for example, would mean that the car would make an attempt to avoid obstacles, but would likely just drive through them.
+              <br><br>
+              Using both the physics and AI systems, I was then able to implement all of the required behaviours regarding current implementations like in <strong><i>Mat Buckland's "Programming Game AI by Example,"</i></strong> and <strong><i>Brian Schwab's "AI Game Engine Programming."</i></strong> Below is a list of all of the steering behaviours that I was able to implement using these systems that I had created.
+
+              <br><br>
+              <i>Click the 🡽 below to view a video of the behaviour in another tab.</i>
+              <ul style="columns: 2; -webkit-columns: 2; moz-columns: 2; margin-top: -10px; margin-bottom: 20px;">
+                <li class="split"><a href="../assets/video/Arrive.mp4" target="_blank">🡽</a>Arrive</li>
+                <li class="split"><a href="../assets/video/Decision-Making.mp4" target="_blank">🡽</a>Decision-Making</li>
+                <li class="split"><a href="../assets/video/Flee.mp4" target="_blank">🡽</a>Flee</li>
+                <li class="split"><a href="../assets/video/Obstacle Avoidance.mp4" target="_blank">🡽</a>Obstacle Avoidance</li>
+                <li class="split"><a href="../assets/video/Path Following.mp4" target="_blank">🡽</a>Path Following</li>
+                <li class="split"><a href="../assets/video/Pursuit.mp4" target="_blank">🡽</a>Pursuit</li>
+                <li class="split"><a href="../assets/video/Seek.mp4" target="_blank">🡽</a>Seek</li>
+                <li class="split"><a href="../assets/video/Wander.mp4" target="_blank">🡽</a>Wander</li>
+              </ul>
+
+              To manage the change between behaviour states, I utilised a finite state machine - also demonstrated in Mat Buckland's "Programming Game AI by Example" - along with a toggle system that enables the user to toggle behaviours on and off at will. This enabled the use of <strong>ImGui windows</strong>, enabling the user to toggle between select behaviours, or enable multiple at once. Among these, the user can also select the path following behaviour which will cause the dodge car to move between each of the nodes placed throughout the track. From implementing this behaviour, I learned about the A* algorithm, and how to it could be used alongside the physics system to create gradual movement between each of the nodes in the list.
+            </p>
+          <h2 style="font-size:20px">Future Additions</h2>
+            <p>
+              Now that I have completed this assignment, I have learned a lot about implementing autonomous behaviours in a practical environment, where the result would have a noticeable effect on the physics of the vehicle. As for future additions, I would implement a range of different racetracks to further demonstrate the flexibility of the AI system that was implemented. I would also allow the user to place their waypoints around the track. The dodge car would then use the path following behaviour to sequentially move between each of the nodes while avoiding obstacles, which could also be placed by the user, instead of just being randomly generated.
+            </p>
+
+            <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
+            <div id="disqus_thread"></div> <br/>
+            <script>
+
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+            var disqus_config = function () {
+              this.page.url = 'https://kyle-robinson.co.uk/html/directx-engine';  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = 8; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://https-kyle-robinson-co-uk.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <script id="dsq-count-scr" src="//https-kyle-robinson-co-uk.disqus.com/count.js" async></script>
+
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact">
+    <div class="social-links" style="margin-top:-55px;">
+      <a href="https://github.com/kyle-robinson" class="github" target="_blank"><i class="fa fa-github"></i></a> &nbsp;
+      <a href="https://www.linkedin.com/in/kylerobinsongames/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a> &nbsp;
+      <a href="https://www.hackerrank.com/kylerobinson456?hr_r=1" class="hackerrank" target="_blank"><i class="fab fa-hackerrank"></i></a> &nbsp;
+      <a href="https://stackoverflow.com/users/story/14250876" class="stackoverflow" target="_blank"><i class="fa fa-stack-overflow"></i></a> &nbsp;
+      <a href="https://twitter.com/KyleRobinson42" class="twitter"><i class="fa fa-twitter" target="_blank"></i></a> &nbsp;
+      <a href="https://www.youtube.com/channel/UCU0mqPtBF4Z8TyZ3Pc6FPbQ/" class="youtube" target="_blank"><i class="fa fa-youtube"></i></a> &nbsp;
+    </div>
+  </section><!-- End Contact Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="credits">
+        &copy; KYLE <span style="color:#ff9d00">ROBINSON</span> | PORTFOLIO
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/counterup/counterup.min.js"></script>
+  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/superfish/superfish.min.js"></script>
+  <script src="../assets/vendor/hoverIntent/hoverIntent.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
