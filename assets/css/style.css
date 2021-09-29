@@ -1084,19 +1084,23 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-dxgraphics {
-  background: #ff3838;
+  /* background: #ff3838; */
+  background: #3498db;
 }
 
 #portfolio .portfolio-item .portfolio-info-dxphysics {
-  background: #ff9f1a;
+  /* background: #ff9f1a; */
+  background: #e67e22;
 }
 
 #portfolio .portfolio-item .portfolio-info-sonic {
-  background: #67e6dc;
+  /* background: #67e6dc; */
+  background: #9b59b6;
 }
 
 #portfolio .portfolio-item .portfolio-info-molecularity {
-  background: #18dcff;
+  /* background: #18dcff; */
+  background: #2ecc71;
 }
 
 #portfolio .portfolio-item .portfolio-info-opengl-lighting {
@@ -1104,15 +1108,18 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-opengl {
-  background: #ffaf40;
+  /* background: #ffaf40; */
+  background: #f1c40f;
 }
 
 #portfolio .portfolio-item .portfolio-info-mario {
-  background: #ff4d4d;
+  /* background: #ff4d4d; */
+  background: #e74c3c;
 }
 
 #portfolio .portfolio-item .portfolio-info-ai {
-  background: #7ed6df;
+  /* background: #7ed6df; */
+  background: #fd79a8;
 }
 
 #portfolio .portfolio-item .portfolio-info-cubes {
@@ -1124,11 +1131,13 @@ section {
 }
 
 #portfolio .portfolio-item .portfolio-info-networking {
-  background: #ffbe76;
+  /* background: #ffbe76; */
+  background: #f368e0;
 }
 
 #portfolio .portfolio-item .portfolio-info-unity {
-  background: #ff7979;
+  /* background: #ff7979; */
+  background: #00d2d3;
 }
 
 #portfolio .portfolio-item .portfolio-info-japanese {
