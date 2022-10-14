@@ -1325,8 +1325,8 @@ section {
   #social .twitter-feed
   {
     margin-top: 50px;
-    height: 750px;
-    width: 94%;
+    height: 35vh;
+    width: 100%;
 
     display: block;
     margin-left: auto;
@@ -1335,6 +1335,11 @@ section {
 }
 
 @media (min-width: 992px) {
+  #social .twitter-feed
+  {
+    height: 20vh;
+    width: 100%;
+  }
   .itch-prism
   {
     margin-top: 2%; !important
@@ -1348,8 +1353,16 @@ section {
 @media (max-width: 1200px) {
   .itch-games
   {
-    margin-top: 10px;
+    margin-top: 20px;
     height: auto; !important
+  }
+}
+
+@media (min-width: 1200px) {
+  #social .twitter-feed
+  {
+    height: 10vh;
+    width: 100%;
   }
 }
 
