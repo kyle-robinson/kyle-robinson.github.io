@@ -2,7 +2,7 @@
 
 My online Portfolio showcasing university work and passion projects.
 
-*Click image to view Online Portfolio*
+*- Click image to view online portfolio -*
 
 <a href="https://www.kyle-robinson.co.uk" target="_blank">
         <img src="assets/img/thumbnail.png" alt="Website Landing Page" border="10" />
