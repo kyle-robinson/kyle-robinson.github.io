@@ -1,15 +1,14 @@
-# University Portfolio
+# Kyle Robinson's Portfolio
 
-Online Portfolio showcasing university work and passion projects.
+My online Portfolio showcasing university work and passion projects.
 
 *Click image to view Online Portfolio*
+
 <a href="https://www.kyle-robinson.co.uk" target="_blank">
         <img src="assets/img/thumbnail.png" alt="Website Landing Page" border="10" />
 </a>
 
----
-
-Credits:
+### Credits
 
 	Template:
 		https://bootstrapmade.com/regna-bootstrap-onepage-template/
