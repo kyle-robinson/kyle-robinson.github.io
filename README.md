@@ -8,6 +8,8 @@ My online Portfolio showcasing university work and passion projects.
         <img src="assets/img/thumbnail.png" alt="Website Landing Page" border="10" />
 </a>
 
+---
+
 ### Credits
 
 	Template:
