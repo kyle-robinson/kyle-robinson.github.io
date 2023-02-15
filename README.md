@@ -1,4 +1,6 @@
-# Kyle Robinson's Portfolio
+# My Online Portfolio
+
+[![pages-build-deployment](https://github.com/kyle-robinson/kyle-robinson.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/kyle-robinson/kyle-robinson.github.io/actions/workflows/pages/pages-build-deployment)
 
 My online Portfolio showcasing university work and passion projects.
 
