@@ -589,11 +589,6 @@ pre .dec { color: #98fb98 } /* decimal         - lightgreen */
   color: #fff;
 }
 
-.stackoverflow:hover {
-  background: #ef8236;
-  color: #fff;
-}
-
 .hackerrank:hover {
   background: #30C464;
   color: #fff;
