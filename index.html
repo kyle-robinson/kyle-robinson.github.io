@@ -178,9 +178,9 @@
         <div class="section-header">
           <h3 class="section-title">Portfolio</h3>
           <p class="section-description">
-            This is a list of the games and graphics engines that I have created while in university along with hobby projects and other miscellaneous goodies.
+            This is a list of the games, engines, and frameworks that I created while in university along with hobby projects and other miscellaneous goodies.
             <br>
-            For the below tiles, <span style="color:#ff9d00;">click "<i class="fa fa-chevron-right"></i>"</span> while hovering to cycle through related projects.
+            Hover over the below tiles, and click <span style="color:#ff9d00;">More Details "<i class="bx bx-link"></i>"</span> to view additional information on the project.
           </p>
         </div>
 
@@ -188,19 +188,28 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-cpp">C++</li>
-              <li data-filter=".filter-dx">DirectX</li>
-              <li data-filter=".filter-opengl">OpenGL</li>
-              <li data-filter=".filter-misc">Misc.</li>
+              <li data-filter=".filter-year1">Year 1</li>
+              <li data-filter=".filter-year2">Year 2</li>
+              <li data-filter=".filter-year3">Year 3</li>
+              <li data-filter=".filter-hobby">Hobby</li>
             </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" style="align-content:center;" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-0 d-flex justify-content-center">
+            <div class="section-header portfolio-item filter-year2" style="width:100%;">
+              <h3 class="section-description"><b>YEAR 2</b></h3>
+              <hr style="height:1.5px;background:#ccc;">
+            </div>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-dx">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year2">
             <img src="assets/img/index/molecularity.jpg" class="img-fluid" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-molecularity">
+            <div class="portfolio-info portfolio-info-year2">
               <h4>Molecularity</h4>
               <p>A sci-fi puzzle game created as a group for my Technical Games Production module.</p>
               <a href="https://vimeo.com/558943103" target="_blank" class="vimeo-link" title="View on Vimeo"><i class="bx bxl-vimeo"></i></a>
@@ -209,20 +218,20 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-dx">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year2">
             <img src="assets/img/index/physics.png" class="img-fluid" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-dxphysics">
+            <div class="portfolio-info portfolio-info-year2">
               <h4>Physics Framework</h4>
-              <p style="padding-right:40px;">A framework that simulates a vareity of realistic physics.</p>
+              <p style="padding-right:40px;">A framework that simulates a variety of realistic physics.</p>
               <a href="https://www.youtube.com/watch?v=23r29toUFZo" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
               <a href="https://github.com/kyle-robinson/physics-framework" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
               <a href="html/directx-physics" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-dx">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year2">
             <img src="assets/img/index/framework.png" class="img-fluid" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-dxgraphics">
+            <div class="portfolio-info portfolio-info-year2">
               <h4>Graphics Framework</h4>
               <p style="padding-right:40px;">A framework created that implements a variety 3D graphics techniques.</p>
               <a href="https://youtu.be/_9_MtRrjU20" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
@@ -233,7 +242,7 @@
 
           <!-- DirectX Tiles -->
 
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-dx">
+          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-year2">
             <img id="directx-picture" src="assets/img/index/physics.png" class="img-fluid" alt="Image not found.">
             <div class="portfolio-info portfolio-info-directx">
 
@@ -299,20 +308,52 @@
 
           <!-- DirectX Tiles End -->
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-opengl">
-            <img src="assets/img/index/breakout.png" class="img-fluid" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-sonic">
-              <h4>Sonic Breakout</h4>
-              <p>A modern rendition of the 1976 Atari game "Breakout," featuring a Sonic theme.</p>
-              <a href="https://www.youtube.com/watch?v=K1eCgV0rLbk" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
-              <a href="https://github.com/kyle-robinson/sonic-breakout" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
-              <a href="html/breakout" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year2">
+            <img src="assets/img/index/ai.png" class="img-fluid" alt="Image not found.">
+            <div class="portfolio-info portfolio-info-year2">
+              <h4>A.I. Behaviours</h4>
+              <p>Autonomous A.I. steering behaviours created for my Artificial Intelligence in Games module.</p>
+              <a href="https://github.com/kyle-robinson/ai-framework" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+              <a href="html/ai-behaviours" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year2">
+            <img src="assets/img/index/paint.png" class="img-fluid" alt="Image not found.">
+            <div class="portfolio-info portfolio-info-year2">
+              <h4>Networked Applications</h4>
+              <p>A set of networked applications created for my Concurrent Network Applications module.</p>
+              <a href="https://github.com/kyle-robinson/online-apps" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+              <a href="html/networking" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row portfolio-container" style="align-content:center;" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-0 d-flex justify-content-center">
+            <div class="section-header portfolio-item filter-year1" style="width:100%;">
+              <h3 class="section-description"><b>YEAR 1</b></h3>
+              <hr style="height:1.5px;background:#ccc;">
+            </div>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year1">
+            <img src="assets/img/index/opengl-cube.png" class="img-fluid" alt="Image not found.">
+            <div class="portfolio-info portfolio-info-year1">
+              <h4>OpenGL Sandbox</h4>
+                <p style="padding-right:40px;">A simple OpenGL project, created for Graphical System Development module.</p>
+                <a href="https://github.com/kyle-robinson/opengl-project" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+                <a href="html/opengl-cubes" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
           <!-- OpenGL Tiles -->
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-opengl">
+          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-year1 filter-hobby">
             <img id="opengl-picture" src="assets/img/index/water.png" class="img-fluid" alt="Image not found.">
             <div class="portfolio-info portfolio-info-opengl">
 
@@ -373,11 +414,13 @@
               </div>
 
             </div>
-          </div>
+          </div> -->
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-misc">
+          <!-- OpenGL Tiles End -->
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year1">
             <img src="assets/img/index/mario-game.png" class="img-fluid" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-mario">
+            <div class="portfolio-info portfolio-info-year1">
               <h4>Mario Bros.</h4>
               <p>Mario Bros. (NES) replica game created as part of my Games Engine Creation module.</p>
               <a href="https://www.youtube.com/watch?v=LfMLOClO6qs" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
@@ -386,33 +429,59 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-cpp filter-dx">
-            <img src="assets/img/index/ai.png" class="img-fluid" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-ai">
-              <h4>A.I. Behaviours</h4>
-              <p>Autonomous A.I. steering behaviours created for my Artificial Intelligence in Games module.</p>
-              <a href="https://github.com/kyle-robinson/ai-framework" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
-              <a href="html/ai-behaviours" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-misc">
-            <img src="assets/img/index/paint.png" class="img-fluid" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-networking">
-              <h4>Networked Applications</h4>
-              <p>A set of networked applications created for my Concurrent Network Applications module.</p>
-              <a href="https://github.com/kyle-robinson/online-apps" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
-              <a href="html/networking" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-misc">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-year1">
             <img src="assets/img/index/prism.png" class="img-fluid" style="height:150%" alt="Image not found.">
-            <div class="portfolio-info portfolio-info-unity">
+            <div class="portfolio-info portfolio-info-year1">
               <h4>Unity: Prism</h4>
               <p>A 2D noir side-scroller game created as part of a team for my Welcome Week project.</p>
               <a href="https://kylerobinsongames.itch.io/prism" target="_blank" class="itch-link" title="View on itch.io"><i class="bx bxs-joystick"></i></a>
               <a href="html/prism" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row portfolio-container" style="align-content:center;" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-0 d-flex justify-content-center">
+            <div class="section-header portfolio-item filter-hobby" style="width:100%;">
+              <h3 class="section-description"><b>HOBBY</b></h3>
+              <hr style="height:1.5px;background:#ccc;">
+            </div>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-hobby">
+            <img src="assets/img/index/breakout.png" class="img-fluid" alt="Image not found.">
+            <div class="portfolio-info portfolio-info-hobby">
+              <h4>Sonic Breakout</h4>
+              <p>A modern rendition of the 1976 Atari game "Breakout," featuring a Sonic theme.</p>
+              <a href="https://www.youtube.com/watch?v=K1eCgV0rLbk" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
+              <a href="https://github.com/kyle-robinson/sonic-breakout" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+              <a href="html/breakout" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-hobby">
+            <img src="assets/img/index/shadows.png" class="img-fluid" alt="Image not found.">
+            <div class="portfolio-info portfolio-info-hobby">
+              <h4>OpenGL Lighting</h4>
+                <p style="padding-right:40px;">A variety of lighting techniques based on LearnOpenGL.</p>
+                <a href="https://www.youtube.com/playlist?list=PLn_BYD1M0NFQmf54lreTN8rBPfGNCQ4nC" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
+                <a href="https://github.com/kyle-robinson/opengl-lighting" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+                <a href="html/opengl-lighting" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-hobby">
+            <img src="assets/img/index/water.png" class="img-fluid" alt="Image not found.">
+            <div class="portfolio-info portfolio-info-hobby">
+              <h4>OpenGL Graphics</h4>
+                <p style="padding-right:40px;">A variety of graphics implementations created according to LearnOpenGL.</p>
+                <a href="https://www.youtube.com/playlist?list=PLn_BYD1M0NFRg2qqDj6GxlQo2NO5_ufG5" target="_blank" class="youtube-link" title="View on YouTube"><i class="bx bxl-youtube"></i></a>
+                <a href="https://github.com/kyle-robinson/opengl-tutorials" target="_blank" class="github-link" title="View Source Code"><i class="bx bxl-github"></i></a>
+                <a href="html/opengl-tutorials" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
