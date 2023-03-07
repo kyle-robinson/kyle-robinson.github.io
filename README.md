@@ -20,11 +20,9 @@
 
 My online Portfolio showcasing university work and passion projects.
 
-*- Click image to view online portfolio -*
+*- Click <a href="https://www.kyle-robinson.co.uk" target="_blank">here</a> to view online portfolio -*
 
-<a href="https://www.kyle-robinson.co.uk" target="_blank">
-        <img src="assets/img/thumbnail.png" alt="Website Landing Page" border="10" />
-</a>
+<img src="assets/img/thumbnail.png" alt="Website Landing Page" border="10" />
 
 ---
 
