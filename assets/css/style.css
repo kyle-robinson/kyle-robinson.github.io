@@ -1051,7 +1051,7 @@ section {
 
 #portfolio #portfolio-flters li:last-child {
   margin-right: 0;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 #portfolio .portfolio-item {

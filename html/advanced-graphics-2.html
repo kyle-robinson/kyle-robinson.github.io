@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kyle Robinson - Prism</title>
+  <title>Kyle Robinson - Graphics Framework</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -34,7 +34,6 @@
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
-
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="../#landing">Home</a></li>
@@ -45,7 +44,6 @@
           <li><a href="../assets/Kyle Robinson CV.pdf" target="_blank">C.V.</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
-
     </div>
   </header><!-- End Header -->
 
@@ -65,52 +63,59 @@
         <div class="portfolio-details-container">
 
           <div class="owl-carousel portfolio-details-carousel">
-            <img src="../assets/img/prism/prism1.png" class="img-fluid" alt="">
-            <img src="../assets/img/prism/prism2.png" class="img-fluid" alt="">
-            <img src="../assets/img/prism/prism4.jpg" class="img-fluid" alt="">
+            <img src="../assets/img/adv-graphics/cube-small.png" class="img-fluid" alt="">
+            <img src="../assets/img/adv-graphics/animation-small.png" class="img-fluid" alt="">
+            <img src="../assets/img/adv-graphics/terrain-small.png" class="img-fluid" alt="">
           </div>
 
           <div class="portfolio-info">
-            <h3>Game Information</h3>
+            <h3>Project Information</h3>
             <ul>
-              <li><strong>Scripting</strong>: C#</li>
-              <li><strong>Game Engine</strong>: Unity</li>
-              <li><strong>Creation</strong>: Welcome Week</li>
-              <li><strong>Source URL</strong>: <a href="https://github.com/kyle-robinson/prism">Github Page</a></li>
+              <li><strong>Language</strong>: C++</li>
+              <li><strong>Graphics API</strong>: DirectX 11</li>
+              <li><strong>Creation</strong>: Y3 S2</li>
+              <li><strong>Source URL</strong>: <a href="https://github.com/kyle-robinson/advanced-graphics">Github Page</a></li>
             </ul>
           </div>
 
         </div> <br/>
 
         <div class="portfolio-description">
-          <h2>Unity: Prism</h2>
+          <h2>Advanced Graphics <i>2</i></h2>
             <p>
-              Created during Welcome Week as part of a team in a mini game jam, Prism is a noir-style side-scroller created with Unity. Our task was to create a game according to a theme decided in our teams. After much deliberation over what features out game would include, there were numerous, but above all, the one thing that was clear to us was that Sans from Undertale would feature in it - the rest came later. Prism was created over the course of four days. It can be played on <a href="http://itch.io/">itch.io</a> using the embedded link below. "Space Shooter" is another Unity game that I have worked on.
+              Created as part of my <strong>Further Games and Graphics Concepts</strong> module in semester 1 of my second year. The task was to create a framework using the DirectX graphics API, which would allow for the simple use and addition of numerous graphical elements, by utilising abstraction to its fullest extent. The application was to also demonstrate an understanding of numerous 3D graphical concepts through physical implementations. Using the framework in question, the incorporation and modification of these features should be made as simple as possible to ensure the intuitive creation and modification of each of these components.
             </p>
-
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <video width="100%" height="100%" controls style="align-items:center">
-                      <source src="../assets/video/Prism.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                  </div>
-                  <div class="col-lg-6">
-                    <iframe class="itch-games itch-prism" frameborder="0" src="https://itch.io/embed/515521?border_width=5&amp;bg_color=222222&amp;fg_color=eeeeee&amp;link_color=f2844b&amp;border_color=363636" width="100%" height="175"></iframe>
-                    <iframe class="itch-games itch-space" frameborder="0" src="https://itch.io/embed/284422?bg_color=222222&amp;fg_color=eeeeee&amp;link_color=F2844B&amp;border_color=363636" width="100%" height="175"><a href="https://kylerobinsongames.itch.io/space-shooter">Space Shooter by Kyle Robinson</a></iframe>
-                  </div>
-                </div>
-              </div>
-
-              <br/>
-          <h2 style="font-size:20px">My First Week</h2>
+          <h2 style="font-size:20px">What Did I Learn?</h2>
             <p>
-              Prism was made using Unity with scripting done in C#. At the end of the week, professionals from <a href="https://www.playground-games.com/">Playground Games</a> came in to judge all of the games that were created. Out of all of the games that were made, Prism, the game that I helped create as part of my team, was voted the best - even though our skills as game developers were limited at the time. While I have been able to create more advanced games using C++ in recent times, I am still very proud of my team for being able to work together effectively to create "Prism," and make it as entertaining as it is.
-            </p>
+              As I had previously created an engine in DirectX 11, the main aim of this application was to utilise abstraction to allow for the simple creation and integration of graphical components. Subsequently, I learned quite a lot regarding abstraction and the many uses of C++ which allowed for this. Collision checking is one example of where C++ was a benefit in that by utilising <strong>static functions</strong>, I was able to minimize this implementation to one line of code, meaning that this was all that was required to check for collisions between the scene objects, including the cameras.
 
+              <pre class="prettyprint">
+ // static functions to check for collisions
+ static bool CheckCollision3D( GameObject3D& object1, GameObject3D& object2, float radius );
+ static bool CheckCollision3D( std::shared_ptr&lt;Camera3D&gt;& object1, Light& object2, float radius );
+ static bool CheckCollision3D( std::shared_ptr&lt;Camera3D&gt;& object1, GameObject3D& object2, float radius, float yOffset = 0.0f );</pre>
+
+              Along with this, I also implemented an <strong>ImGuiManager</strong> class which allowed for the toggling and modification of features at runtime. For the purpose of testing feature implementations, the ImGuiManager allowed the simple creation of an ImGui window to test the functionality of these features with the optional modification of its parameters.
+              <br/><br/>
+              With the additional implementation of an <strong>entity-component system</strong>, this allowed for the simple addition of new objects within the scene, as they could inherit functionality from the appropriate class according to whether the object is 2D or 3D. Inherited functionality includes functions for moving, rotating and scaling objects and more. Specialized objects, such as cameras, could inherit from the ECS, but also utilise its own class with specialized functionality for viewing the scene.
+
+              <br/><br/><pre class="prettyprint">
+ // draw all models into the scene
+ for ( unsigned int i = 0; i < renderables.size(); i++ )
+      renderables[i].Draw( cameras[cameraToUse]->GetViewMatrix(), cameras[cameraToUse]->GetProjectionMatrix() );</pre>
+
+              Researching and implementing each of these framework components had me learn a lot more about DirectX and especially C++ when trying to ensure a minimal amount of code when creating and incorporating a graphical feature into the application.
+            </p>
+          <h2 style="font-size:20px">Future Additions</h2>
+            <p>
+              After furthering my knowledge in DirectX and building upon my C++ skills, I plan to enhance and refine the current features such as the lighting system, to allow several light sources at once along with <strong>dynamic shadow mapping</strong> to boost the realism of the scene. I also plan to work on the shaders for the lighting system, and perhaps incorporate a water implementation which would utilise the lighting within the scene.
+              <br/><br/>
+              I also plan to incorporate a <strong>physics engine</strong>, which is also the task of semester 2 for this module, which would allow for objects to interact with each other following collisions. This will also require more work on the ECS to allow for more specialized objects to be created and easily placed within the scene. With this addition of an <strong>A.I.</strong> system, this could allow for character objects to be added which could follow or target the player.
+              <br/><br/>
+              Further from this, I would also like to implement a <strong>PBR</strong> system, which would overhaul the current lighting and texturing system, but seeing as this would require extensive time and effort, this is something that I will likely implement once I have fully refined the framework.
+            </p>
             <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
-            <div id="disqus_thread"></div> <br/>
+            <div id="disqus_thread"></div><br/>
             <script>
 
             /**
@@ -118,8 +123,8 @@
             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
             var disqus_config = function () {
-              this.page.url = 'https://kyle-robinson.co.uk/html/prism';  // Replace PAGE_URL with your page's canonical URL variable
-              this.page.identifier = 17; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              this.page.url = 'https://kyle-robinson.co.uk/html/advanced-graphics-2';  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = 1; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
 
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -159,6 +164,7 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="../assets/vendor/jquery/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
