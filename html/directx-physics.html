@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Kyle Robinson - Physics Framework</title>
-  <meta content="" name="descriptison">
+  <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -103,7 +103,7 @@
      cubes[i]->GetAppearance()->SetGeometryData( cubeGeometry );
      cubes[i]->GetAppearance()->SetMaterial( shinyMaterial );
  }</pre>
-              Utilising the component and level system, I was then able to implement the main physics simulations: a mass aggregate system, collision detection and response, and rigid body rotations. The <strong>mass aggregate system</strong> required a force model which would include a range of relevant forces that would act on a given game object. Here I implemented forces for moving an object: velocity, acceleration, and gravity. This system was further adapted to account for additional forces: friction, laminar and turbulent drag, and thrust.
+              Utilizing the component and level system, I was then able to implement the main physics simulations: a mass aggregate system, collision detection and response, and rigid body rotations. The <strong>mass aggregate system</strong> required a force model which would include a range of relevant forces that would act on a given game object. Here I implemented forces for moving an object: velocity, acceleration, and gravity. This system was further adapted to account for additional forces: friction, laminar and turbulent drag, and thrust.
               <br><br>
               <strong>Collision detection and response</strong> was also implemented alongside the mass aggregate system. Upon collision, the system considered the force at which each game object collided, calculated a resolution force and then applied it to both. The result was a collision system that communicates with the mass aggregate system to resolve collisions in real-time while accounting for an object's mass. This collision system works well with multiple objects, however, for even more realistic collisions, the rigid body system adapts this further, accurately simulating the collision between two cubes.
               <br><br>
@@ -124,12 +124,12 @@
               </center>
               <br>
 
-              Further, I would also like to optimise collision checking by implementing spatial partitioning in the form of a <strong>quadtree</strong>. This method would ensure that collision checks are only computed between game objects that are closest together, or that are most likely to collide with each other, thus reducing the overall computational cost of collision checking.
+              Further, I would also like to optimize collision checking by implementing spatial partitioning in the form of a <strong>quad-tree</strong>. This method would ensure that collision checks are only computed between game objects that are closest together, or that are most likely to collide with each other, thus reducing the overall computational cost of collision checking.
               <br><br>
               <center>
                 <img class="img-fluid" style="width:75%;border:1px solid gray;" src="../assets/img/physics/quadtree.png" alt=""><br>
                 <span style="font-size:10px;font-style:italic;">
-                  Spatial and logical arrangement of an example quadtree. (Apple, 2021).
+                  Spatial and logical arrangement of an example quad-tree. (Apple, 2021).
                   <span color="#ff9d00">
                     <a href="https://developer.apple.com/documentation/gameplaykit/gkquadtree">
                       View on Apple.

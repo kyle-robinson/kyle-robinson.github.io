@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kyle Robinson - Graphics Framework</title>
-  <meta content="" name="descriptison">
+  <title>Kyle Robinson - Advanced Graphics 1</title>
+  <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -83,36 +83,62 @@
         <div class="portfolio-description">
           <h2>Advanced Graphics <i>1</i></h2>
             <p>
-              Created as part of my <strong>Advanced Graphics and Real-Time Rendering</strong> module in semester 1 of my third year. The task was to create a framework using the DirectX graphics API, which would allow for the simple use and addition of numerous graphical elements, by utilising abstraction to its fullest extent. The application was to also demonstrate an understanding of numerous 3D graphical concepts through physical implementations. Using the framework in question, the incorporation and modification of these features should be made as simple as possible to ensure the intuitive creation and modification of each of these components.
+              Created as part of my <strong>Advanced Graphics and Real-Time Rendering</strong> module in semester 1 of my third year. The task was to create a framework using the DirectX graphics API, which would demonstrate a range of advanced graphical techniques. The techniques implemented were deferred rendering, screen space ambient occlusion (SSAO), fast approximate anti-aliasing (FXAA), and motion blur along with a range of advanced texture mapping techniques. The framework was created using the entity-component system and abstraction to allow for the simple creation of new objects and features. The framework also includes a custom editor, ImGui, which allows for the modification of parameters at runtime.
             </p>
           <h2 style="font-size:20px">What Did I Learn?</h2>
             <p>
-              As I had previously created an engine in DirectX 11, the main aim of this application was to utilise abstraction to allow for the simple creation and integration of graphical components. Subsequently, I learned quite a lot regarding abstraction and the many uses of C++ which allowed for this. Collision checking is one example of where C++ was a benefit in that by utilising <strong>static functions</strong>, I was able to minimize this implementation to one line of code, meaning that this was all that was required to check for collisions between the scene objects, including the cameras.
+              This project was a great opportunity to learn about how the DirectX graphics API can be utilized to implement a range of complex texture mapping and post-processing techniques. I learned a lot about shaders and how they can be used to implement these techniques. I learned how to displace texture coordinates using a height map and the methods of modifying them to achieve the desired normal and parallax effects. I learned how to implement SSAO and how to use the depth buffer to create a shadow map. I learned how to implement motion blur and how to use store pixel values from previous frames and modify them given a velocity and direction based on camera movement to achieve this effect. I learned how to implement FXAA and how to use the luminance of a pixel to determine if it should be blurred and added to the final image.
+              <br><br>
+              For deferred rendering, I learned how to use multiple render targets to store the position, normal, and albedo of each pixel in the scene. I learned how to use the depth buffer to determine the depth of each pixel and how to use this to determine the distance of each pixel from the camera. I learned how to use the position and normal of each pixel to determine light values and how to use the albedo to determine the colour of the pixel.
+              <br><br>
+              The first step in deferred rendering is to render the scene to the render targets, which is done in the <code>BeginFrameDeferred()</code> function.
 
               <pre class="prettyprint">
- // static functions to check for collisions
- static bool CheckCollision3D( GameObject3D& object1, GameObject3D& object2, float radius );
- static bool CheckCollision3D( std::shared_ptr&lt;Camera3D&gt;& object1, Light& object2, float radius );
- static bool CheckCollision3D( std::shared_ptr&lt;Camera3D&gt;& object1, GameObject3D& object2, float radius, float yOffset = 0.0f );</pre>
+void Graphics::BeginFrameDeferred()
+{
+    // Clear render target/depth stencil
+    ID3D11RenderTargetView* renderTargets[] = {
+        m_pRenderTargetsDeferred[Bind::RenderTarget::Type::POSITION]->GetRenderTarget(),
+        m_pRenderTargetsDeferred[Bind::RenderTarget::Type::ALBEDO]->GetRenderTarget(),
+        m_pRenderTargetsDeferred[Bind::RenderTarget::Type::NORMAL]->GetRenderTarget()
+    };
+    m_pContext->OMSetRenderTargets( BUFFER_COUNT, renderTargets, m_pDepthStencil->GetDepthStencilView() );
+    m_pContext->ClearRenderTargetView( m_pRenderTargetsDeferred[Bind::RenderTarget::Type::POSITION]->GetRenderTarget(), m_clearColor );
+    m_pContext->ClearRenderTargetView( m_pRenderTargetsDeferred[Bind::RenderTarget::Type::ALBEDO]->GetRenderTarget(), m_clearColor );
+    m_pContext->ClearRenderTargetView( m_pRenderTargetsDeferred[Bind::RenderTarget::Type::NORMAL]->GetRenderTarget(), m_clearColor );
+    m_pDepthStencil->ClearDepthStencil( m_pContext.Get() );
+}</pre>
 
-              Along with this, I also implemented an <strong>ImGuiManager</strong> class which allowed for the toggling and modification of features at runtime. For the purpose of testing feature implementations, the ImGuiManager allowed the simple creation of an ImGui window to test the functionality of these features with the optional modification of its parameters.
-              <br/><br/>
-              With the additional implementation of an <strong>entity-component system</strong>, this allowed for the simple addition of new objects within the scene, as they could inherit functionality from the appropriate class according to whether the object is 2D or 3D. Inherited functionality includes functions for moving, rotating and scaling objects and more. Specialized objects, such as cameras, could inherit from the ECS, but also utilise its own class with specialized functionality for viewing the scene.
+              The second step is to render the scene to the back buffer using the render targets as inputs to the shaders.
 
-              <br/><br/><pre class="prettyprint">
- // draw all models into the scene
- for ( unsigned int i = 0; i < renderables.size(); i++ )
-      renderables[i].Draw( cameras[cameraToUse]->GetViewMatrix(), cameras[cameraToUse]->GetProjectionMatrix() );</pre>
+              <br><br>
 
-              Researching and implementing each of these framework components had me learn a lot more about DirectX and especially C++ when trying to ensure a minimal amount of code when creating and incorporating a graphical feature into the application.
+              <pre class="prettyprint">
+void Graphics::UpdateRenderStateCube( bool useShadows, bool useDeferred, bool useGBuffer )
+{
+    // Set default render state for cubes
+    m_pRasterizerStates[Bind::Rasterizer::Type::SOLID]->Bind( m_pContext.Get() );
+    if ( useShadows )
+    {
+        Shaders::BindShaders( m_pContext.Get(), m_vertexShaderSDW, m_pixelShaderSDW );
+    }
+    else if ( useDeferred )
+    {
+        useGBuffer ?
+            Shaders::BindShaders( m_pContext.Get(), m_vertexShaderDR, m_pixelShaderDR ) :
+            Shaders::BindShaders( m_pContext.Get(), m_vertexShaderGB, m_pixelShaderGB );
+    }
+    else
+    {
+        Shaders::BindShaders( m_pContext.Get(), m_vertexShader, m_pixelShader );
+    }
+}</pre>
+
+              When rendering the scene to the render targets, the <code>Bind::RenderTarget::Type</code> enum is used to determine which render target is being used. This is done by passing the render target type to the <code>GetRenderTarget()</code> function of the render target. The render target type is then used to determine which shader is used to render the scene. The <code>Bind::RenderTarget::Type</code> enum is also used to determine which render target is being used in the <code>EndFrame()</code> function. This is done by passing the render target type to the <code>GetShaderResourceView()</code> function of the render target.
             </p>
           <h2 style="font-size:20px">Future Additions</h2>
             <p>
-              After furthering my knowledge in DirectX and building upon my C++ skills, I plan to enhance and refine the current features such as the lighting system, to allow several light sources at once along with <strong>dynamic shadow mapping</strong> to boost the realism of the scene. I also plan to work on the shaders for the lighting system, and perhaps incorporate a water implementation which would utilise the lighting within the scene.
-              <br/><br/>
-              I also plan to incorporate a <strong>physics engine</strong>, which is also the task of semester 2 for this module, which would allow for objects to interact with each other following collisions. This will also require more work on the ECS to allow for more specialized objects to be created and easily placed within the scene. With this addition of an <strong>A.I.</strong> system, this could allow for character objects to be added which could follow or target the player.
-              <br/><br/>
-              Further from this, I would also like to implement a <strong>PBR</strong> system, which would overhaul the current lighting and texturing system, but seeing as this would require extensive time and effort, this is something that I will likely implement once I have fully refined the framework.
+              In the future, I would like to add a few more features to the framework. I would like to add a water shader to the scene and implement a water shader. I would also like to add a shadow mapping shader, a depth of field shader, a volumetric lighting shader a lens flare shader, screen space reflection and refraction shaders, a screen space subsurface scattering shader, among various other global illumination shaders to the scene. I would also like to spend more time working on implementing a full shadow mapping system which would include a shadow mapping shader, a shadow mapping buffer, and a shadow mapping camera, which would allow for the rendering of shadows on the scene.
             </p>
             <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
             <div id="disqus_thread"></div><br/>
