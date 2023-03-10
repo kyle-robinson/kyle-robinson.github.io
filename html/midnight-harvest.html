@@ -83,39 +83,52 @@
         <div class="portfolio-description">
           <h2>Midnight Harvest</h2>
             <p>
-              Created as part of my <strong>Further Games and Graphics Concepts</strong> module in semester 1 of my second year. The task was to create a framework using the DirectX graphics API, which would allow for the simple use and addition of numerous graphical elements, by utilising abstraction to its fullest extent. The application was to also demonstrate an understanding of numerous 3D graphical concepts through physical implementations. Using the framework in question, the incorporation and modification of these features should be made as simple as possible to ensure the intuitive creation and modification of each of these components.
+              Created as part of my <strong>Group Game Development</strong> module in semester 2 of my third year. The aim of this project was to create a game using the engine that we had previously create, Roche. The game was created in a group of 10, with each member taking on a different role, where I was designated team leader. I was responsible for setting up the core systems, like Win32, DirectX, and ImGui, the UI system, engine architecture, and assigning tasks to members of the team. The game was created using various design patterns like the entity-component system, an event system, and multiple state machines which would handle game aspects like level switching and AI states. The game was created in 3 weeks, following the creation of the Roche engine which also took 3 weeks, and was overall a great learning experience for me as I was able to learn a lot about game development, and how to manage a team of people.
+
+              <br/><br/>
+
+              As for the core game loop, this involved purchasing seeds from the shop, and then planting them in the main farm area. When the player has planted enough crops, they can initiate the night phase, which will spawn the crops as enemies. The player must defeat all of the enemies which will spawn in waves, and then return to the shop to purchase more seeds. The type of enemy spawned will change based on the seed that is planted. More expensive seed packets will spawn stronger enemies but will also give the player more money when defeated. The game also features a boss fight, which is unlocked after the player has defeated 5 waves of enemies. The boss fight is a 1v1 battle against a giant corn enemy which the player must defeat to beat the game.
             </p>
               <div class="iframe-container">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5b-HF-X_-II" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div><br/><br/>
           <h2 style="font-size:20px">What Did I Learn?</h2>
             <p>
-              As I had previously created an engine in DirectX 11, the main aim of this application was to utilise abstraction to allow for the simple creation and integration of graphical components. Subsequently, I learned quite a lot regarding abstraction and the many uses of C++ which allowed for this. Collision checking is one example of where C++ was a benefit in that by utilising <strong>static functions</strong>, I was able to minimize this implementation to one line of code, meaning that this was all that was required to check for collisions between the scene objects, including the cameras.
-
-              <pre class="prettyprint">
- // static functions to check for collisions
- static bool CheckCollision3D( GameObject3D& object1, GameObject3D& object2, float radius );
- static bool CheckCollision3D( std::shared_ptr&lt;Camera3D&gt;& object1, Light& object2, float radius );
- static bool CheckCollision3D( std::shared_ptr&lt;Camera3D&gt;& object1, GameObject3D& object2, float radius, float yOffset = 0.0f );</pre>
-
-              Along with this, I also implemented an <strong>ImGuiManager</strong> class which allowed for the toggling and modification of features at runtime. For the purpose of testing feature implementations, the ImGuiManager allowed the simple creation of an ImGui window to test the functionality of these features with the optional modification of its parameters.
+              As mentioned above, this project was a great learning experience for me as I was able to learn a lot about game development, and how to manage a team of people. I was able to learn a lot about the different design patterns that are used in game development, and how to implement them into a game engine. I was also able to learn a lot about how to manage a team of people, and how to assign tasks to each member of the team. The project was also a great opportunity to improve my understanding of GitHub where the aim was to improve my methods of managing the team. I created a project board for the team to use, which allowed for the easy assignment of tasks to each member of the team.
+              
               <br/><br/>
-              With the additional implementation of an <strong>entity-component system</strong>, this allowed for the simple addition of new objects within the scene, as they could inherit functionality from the appropriate class according to whether the object is 2D or 3D. Inherited functionality includes functions for moving, rotating and scaling objects and more. Specialized objects, such as cameras, could inherit from the ECS, but also utilise its own class with specialized functionality for viewing the scene.
 
-              <br/><br/><pre class="prettyprint">
- // draw all models into the scene
- for ( unsigned int i = 0; i < renderables.size(); i++ )
-      renderables[i].Draw( cameras[cameraToUse]->GetViewMatrix(), cameras[cameraToUse]->GetProjectionMatrix() );</pre>
+              <img src="../assets/img/midnight-harvest/project-board.png" class="img-fluid" width="100%" alt="">
+              
+              <br/><br/>
 
-              Researching and implementing each of these framework components had me learn a lot more about DirectX and especially C++ when trying to ensure a minimal amount of code when creating and incorporating a graphical feature into the application.
+              I also created a GitHub wiki page which allowed for the easy creation of documentation for the project, which was used to document the design patterns and features that were used in the project. This was all contained within the organization page that I created for the team, which meant that we were able to create multiple repositories for the project, which allowed for the easy separation of the engine and the game. I also spent a lot of time looking into <strong>continuous integration</strong>, which was managed through GitHub actions, such that when a pull request was made, the code would be built and tested automatically. This allowed for the easy detection of any bugs that were introduced into the codebase, and allowed for the easy merging of pull requests.
+
+              <br/>
+
+              <table class="table-container">
+                <tr>
+                  <td>
+                    <img src="../assets/img/midnight-harvest/ci-checks.png" class="img-fluid" alt="">
+                  </td>
+                  <td>
+                    <img src="../assets/img/midnight-harvest/branch-tests.png" class="img-fluid" alt="">
+                  </td>
+                </tr>
+              </table>
+
+              <br/>
+
+              I also learned a lot on the method of how to best scope a project, and how to create a project plan which would allow for the easy completion of the project within the given time frame. For this, I first had to understand the strengths and weaknesses of everyone in the team, so that I could best assign feature implementations to each member of the team. Throughout the development of the game, I was able to make more informed decisions on how to best assign tasks to each member of the team, and how to best manage the team.
+              
             </p>
           <h2 style="font-size:20px">Future Additions</h2>
             <p>
-              After furthering my knowledge in DirectX and building upon my C++ skills, I plan to enhance and refine the current features such as the lighting system, to allow several light sources at once along with <strong>dynamic shadow mapping</strong> to boost the realism of the scene. I also plan to work on the shaders for the lighting system, and perhaps incorporate a water implementation which would utilise the lighting within the scene.
+              There are a few features that I would like to add to the game in the future, such as adding more levels, and add a few more enemies to the game. I would also like to add a few more features to the shop, such as the ability to purchase upgrades for the player. As we were limited to the time frame of the project, we were unable to fully implement AI state behaviours, and the projectile system. Examples of both of these systems are demonstrated in the video created for Roche, which can be found <a href="roche-engine">here</a>.
+
               <br/><br/>
-              I also plan to incorporate a <strong>physics engine</strong>, which is also the task of semester 2 for this module, which would allow for objects to interact with each other following collisions. This will also require more work on the ECS to allow for more specialized objects to be created and easily placed within the scene. With this addition of an <strong>A.I.</strong> system, this could allow for character objects to be added which could follow or target the player.
-              <br/><br/>
-              Further from this, I would also like to implement a <strong>PBR</strong> system, which would overhaul the current lighting and texturing system, but seeing as this would require extensive time and effort, this is something that I will likely implement once I have fully refined the framework.
+
+              Other than this, I would like to spend time with the other members of Nine Byte Warriors to try to further polish the game and work towards getting the it released on Steam. I would also like to try to get the game released on mobile platforms, such as Android and iOS, as I believe that the game would be a great fit for mobile devices, due to the simplicity of the game.
             </p>
             <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
             <div id="disqus_thread"></div><br/>
