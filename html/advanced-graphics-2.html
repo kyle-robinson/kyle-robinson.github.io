@@ -134,6 +134,7 @@ DOMAIN_OUT DS( PatchTess patchTess, float2 uv : SV_DomainLocation, const OutputP
               The ImGuiFileDialog extension proved very useful for allowing the user to change the diffuse, normal, and height map textures for the objects in the scene including the saving terrain data back to the appropriate JSON files.
 
               <br/><br/><pre class="prettyprint">
+// ImGuizmo - spawn gizmo at the position of the selected entity
 // Decompose/recompose matrix
 float* worldPtr = (float*)&worldMat;
 float matrixTranslation[3], matrixRotation[3], matrixScale[3];
