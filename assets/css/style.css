@@ -1468,6 +1468,20 @@ section {
 }
 
 /* Table */
+.table-container {
+  border: 2px solid #aaa;
+}
+
+.table-container td {
+  border: 2px solid #aaa;
+  border-collapse: collapse;
+}
+
+.table-container td p {
+  margin-bottom: 0px;
+  font-style: italic;
+}
+
 @media (min-width: 992px) {
   .table-container td {
     width: 50%;

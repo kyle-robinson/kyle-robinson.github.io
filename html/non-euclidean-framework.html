@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kyle Robinson - Non-Euclidean Framework</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/person.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f585aa18f8.js" crossorigin="anonymous"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="../#landing">Home</a></li>
+          <li><a href="../#about">About Me</a></li>
+          <li class="menu-active2"><a href="#main">Portfolio</a></li>
+          <li><a href="../#social">Social</a></li>
+          <!-- <li><a href="../#contact-form">Contact</a></li> -->
+          <li><a href="../assets/Kyle Robinson CV.pdf" target="_blank">C.V.</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+      </div>
+    </section>
+    <!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="owl-carousel portfolio-details-carousel">
+            <img src="../assets/img/non-euclidean/nc-geometry.png" class="img-fluid" alt="">
+            <img src="../assets/img/non-euclidean/nc-room.png" class="img-fluid" alt="">
+            <img src="../assets/img/non-euclidean/nc-illusion.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="portfolio-info">
+            <h3>Project Information</h3>
+            <ul>
+              <li><strong>Language</strong>: C++</li>
+              <li><strong>Graphics API</strong>: DirectX 11</li>
+              <li><strong>Creation</strong>: Y3 S1 & S2</li>
+              <li><strong>Source URL</strong>: <a href="https://github.com/kyle-robinson/non-euclidean-framework">GitHub Page</a></li>
+            </ul>
+          </div>
+
+        </div> <br/>
+
+        <div class="portfolio-description">
+          <h2>Non-Euclidean Framework <i>(Research Project)</i></h2>
+            <p>
+              This project was created as part of my <strong>Games Technology Research Project</strong> module in my third year. Being a research project, I had decided to explore the topic of non-Euclidean geometry and how it could be used in games. This required an understanding of Non-Euclidean geometry and space, its applications, and the methods for how it could be implemented in a game engine, including advanced graphics techniques. As such, I decided to create a framework that could be used to create non-Euclidean spaces and objects within them, and to create a demo that would show the possibilities of this framework.
+            </p>
+          <h2 style="font-size:20px">What Did I Learn?</h2>
+            <p>
+              I learned a lot about non-Euclidean geometry and space, and how it could be used in games. I also learned a lot about the mathematics behind the geometry, and how it could be implemented in a game engine. I also learned a lot about advanced graphics techniques, such as stencil masking, RTT and how to apply it alongside recursive scene rendering, and how all these could be used to create non-Euclidean geometry and spaces.
+
+              <br/><br/>
+              
+              I also learned a lot about the research process, and how to conduct research. I learned how to find relevant research papers, and how to read and understand them, and how to create a research proposal, and how to present my research to others. In reading through various research papers, I was able to develop the underlying mathematics allowing for objects and lighting vectors to be ported to target non-Euclidean spaces.
+
+              <br/><br/>
+              
+              <a href="https://link.springer.com/article/10.1007/s00371-021-02303-2">Adapting Game Engines to Curved Spaces</a> by László Szirmay-Kalos & Milán Magdics was a very useful paper, as it provided a lot of information on how to port objects and lighting vectors to non-Euclidean spaces, and how to implement the mathematics behind it. I also learned a lot about the various types of non-Euclidean geometry, how they could be used in games, and their methods of implementation.
+              
+              With the knowledge acquired from this, I was able to develop a method for porting all vertex data input, like position and normal data, to a target non-Euclidean space in the vertex shader which each object would use.
+
+              <pre class="prettyprint">
+float4 Port( float3 ePoint )
+{
+  float3 p = ePoint * NonEuclidean.CurveScale;
+  float d = length( p );
+
+  // Revert to Euclidean if distance is too small
+  if ( d < 0.0001f )
+    return float4( p, 1.0f );
+
+  float scale = 4.0f;
+  if ( NonEuclidean.UseHyperbolic )
+    return float4( p / d * sinh( d ) / scale, cosh( d ) / scale );
+
+  if ( NonEuclidean.UseElliptic )
+    return float4( p / d * sin( d ) * scale, -cos( d ) * scale );
+
+  // Euclidean space
+  return float4( p, 1.0f );
+}</pre>
+
+              To ensure that light vectors were also ported correctly, I modified the dot product and direction functions to account for the curvature of the space, and used this to calculate the correct lighting values on each object.
+
+              <br/><br/><pre class="prettyprint">
+float DotProduct( float4 u, float4 v )
+{
+  float curv = 0.0f;
+  if ( NonEuclidean.UseHyperbolic )
+    curv = -1.0f;
+  if ( NonEuclidean.UseElliptic )
+    curv = 1.0f;
+  return dot( u, v ) - ( ( curv < 0.0f ) ? 2.0f * u.w * v.w : 0.0f );
+}
+
+float4 Direction( float4 to, float4 from )
+{
+  float curv = 0.0f;
+  if ( NonEuclidean.UseHyperbolic )
+    curv = -1.0f;
+  if ( NonEuclidean.UseElliptic )
+    curv = 1.0f;
+  float dp = ( curv != 0.0f ) ? DotProduct( from, to ) : 1.0f;
+  return to - from * dp;
+}</pre>
+
+              Examples of the framework in action can be seen below.
+              <br><br>
+              <ul>
+                <li>
+                  The <strong>first</strong> gif demonstrates how stencil masking can be used to a non-Euclidean cube, by allowing for various objects to be rendered inside each face by masking the others.
+                </li>
+                <br>
+                <li>
+                  The <strong>second</strong> gif demonstrates how RTT and recursive scene rendering can be used to create a non-Euclidean room, by rendering the room to a texture, and then rendering the room again, but with the texture applied to the walls, creating the illusion of a non-Euclidean room.
+                </li>
+                <br>
+                <li>
+                  The <strong>third</strong> gif showcases a standard model being ported to a non-Euclidean space, and how the lighting is calculated correctly.
+                </li>
+                <br>
+                <li>
+                  The <strong>fourth</strong> gif demonstrates how the framework can be used to create optical illusions which are only possible in non-Euclidean spaces, where the room inside the arch appears to be larger than the room outside the arch.
+                </li>
+              </ul>
+
+              <table class="table-container">
+                <tr>
+                  <td>
+                    <img src="../assets/img/non-euclidean/nc-geometry.gif" alt="" width="100%">
+                  </td>
+                  <td>
+                    <img src="../assets/img/non-euclidean/nc-room.gif" alt="" width="100%">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <center><p>Non-Euclidean Geometry</p></center>
+                  </td>
+                  <td>
+                    <center><p>RTT & Recursive Scene Rendering</p></center>
+                  </td>
+                </tr>
+              </table>
+              <br>
+              <table class="table-container">
+                <tr>
+                  <td>
+                    <img src="../assets/img/non-euclidean/nc-space.gif" alt="" width="100%;">
+                  </td>
+                  <td>
+                    <img src="../assets/img/non-euclidean/nc-illusion.gif" alt="" width="100%">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <center><p>Elliptic & Hyperbolic Space</p></center>
+                  </td>
+                  <td>
+                    <center><p>Optical Illusions</p></center>
+                  </td>
+                </tr>
+              </table>
+            </p>
+          <h2 style="font-size:20px">Future Additions</h2>
+            <p>
+              In the future, I would like to add the ability to port the camera to a non-Euclidean space, and also add the ability to port the projection matrix to a non-Euclidean space, which would allow for the creation of non-Euclidean 3D games, rather than porting the objects themselves to a non-Euclidean space, like in the game <a href="https://store.steampowered.com/app/1256230/Hyperbolica/">Hyperbolica</a>. I would also like to improve the non-Euclidean space to appear more seamless like in <a href="https://store.steampowered.com/app/473950/Manifold_Garden/">Manifold Garden</a>, such that the environment would appear to repeat infinitely.</p>
+            </p>
+            <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
+            <div id="disqus_thread"></div><br/>
+            <script>
+
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+            var disqus_config = function () {
+              this.page.url = 'https://kyle-robinson.co.uk/html/non-euclidean-framework';  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = 13; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://https-kyle-robinson-co-uk.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <script id="dsq-count-scr" src="//https-kyle-robinson-co-uk.disqus.com/count.js" async></script>
+
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact">
+    <div class="social-links" style="margin-top:-55px;">
+      <a href="https://github.com/kyle-robinson" class="github" target="_blank"><i class="fa fa-github"></i></a> &nbsp;
+      <a href="https://www.linkedin.com/in/kylerobinsongames/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a> &nbsp;
+      <a href="https://www.hackerrank.com/kylerobinson456?hr_r=1" class="hackerrank" target="_blank"><i class="fab fa-hackerrank"></i></a> &nbsp;
+      <a href="https://twitter.com/KyleRobinson42" class="twitter"><i class="fa fa-twitter" target="_blank"></i></a> &nbsp;
+      <a href="https://www.youtube.com/@kylerobinsongames" class="youtube" target="_blank"><i class="fa fa-youtube"></i></a> &nbsp;
+    </div>
+  </section><!-- End Contact Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="credits">
+        &copy; KYLE <span style="color:#ff9d00">ROBINSON</span> | PORTFOLIO
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/counterup/counterup.min.js"></script>
+  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/superfish/superfish.min.js"></script>
+  <script src="../assets/vendor/hoverIntent/hoverIntent.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
