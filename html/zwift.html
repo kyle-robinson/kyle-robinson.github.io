@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kyle Robinson - Zwift</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/person.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f585aa18f8.js" crossorigin="anonymous"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="../#landing">Home</a></li>
+          <li><a href="../#about">About Me</a></li>
+          <li class="menu-active2"><a href="#main">Portfolio</a></li>
+          <li><a href="../#social">Social</a></li>
+          <!-- <li><a href="../#contact-form">Contact</a></li> -->
+          <li><a href="../assets/Kyle Robinson CV.pdf" target="_blank">C.V.</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+      </div>
+    </section>
+    <!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="owl-carousel portfolio-details-carousel">
+            <img src="../assets/img/zwift/zwift.jpg" class="img-fluid" alt="">
+            <img src="../assets/img/zwift/yumezi.jpg" class="img-fluid" alt="">
+            <img src="../assets/img/zwift/neokyo.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="portfolio-info">
+            <h3>Project Information</h3>
+            <ul>
+              <li><strong>Language</strong>: C++</li>
+              <li><strong>Graphics API</strong>: OpenGL</li>
+              <!-- <li><strong>Creation</strong>: Y3 S1 & S2</li> -->
+              <!-- <li><strong>Source URL</strong>: <a href="https://github.com/kyle-robinson/non-euclidean-framework">GitHub Page</a></li> -->
+            </ul>
+          </div>
+
+        </div> <br/>
+
+        <div class="portfolio-description">
+          <h2>Zwift<!-- <i>(Research Project)</i>--></h2>
+            <p>
+              During my time at Sumo Digital as a Placement Programmer, I worked as a tools programmer on Zwift, implementing new features for the level editor. Day-to-day responsibilities included stand-up meetings, working through Jira tickets and occasional collaboration if required by the feature implementation. I would also attend bi-weekly meetings for new requests and sprint planning. New requests meetings were to review ideas for new features made by users of the editor, and for me to provide feedback on feasibility and time estimates.
+            </p>
+
+          <h2 style="font-size:20px">Tools Programming</h2>
+            <p>
+              One of the tools that I created was the <strong>visual markers</strong> for the <strong>timing arches</strong>. It enabled users to visualize predefined start and end points at a distance along the road according to where an arch was placed.
+
+              <br/>
+              <center><img src="../assets/img/zwift/timing-arches.jpg" class="img-fluid" alt=""></center>
+              <br/><br/>
+
+              At the outset, adding visual locators at a distance out from timing arches located throughout the game seemed relatively feasible, it quickly escalated and became a lot more complex. The reason for this is that it required modifying the rendering of roads so that the visual markers would always appear on top. The main problem was creating transparency, as this essentially meant that two roads would need to be rendered. The road that the player rides on and the coloured road with slight transparency on top.
+              <br/><br/>
+              As I started down the path of modifying the road rendering system, I soon found this to be the case, and as the implementation was growing larger, it also became harder to get help from seniors since they would have to spend a great deal of time catching up on what I had already done.
+              <br/><br/>
+              Further, as the road on top copied the original road rendering method, it was looping through all the tessellation points on the road, and then only rendering a particular segment. Coupled with the fact that it would never have a texture applied, this meant that the tessellation points should have been reduced, to better optimize the render method. These were all issues that could have been identified had I initially contacted a member of the Zwift team that was familiar with this system.
+
+              <br/><br/>
+              <center><img src="../assets/img/zwift/looped-roads.jpg" class="img-fluid" alt=""></center>
+              <br/><br/>
+
+              Additionally, the implementation also required a system to allow the user to drag and move the light towers along the road, and have the coloured road react accordingly. This created an issue with looped roads, especially at the seam where the road connects.
+              <br/><br/>
+              Considering all this, I think the best solution for this would have been to identify feasibility before assigning this ticket and providing a list of people that were familiar with the affected systems. Consequently, however, this system took a lot longer to implement than it probably should have, even though it was relatively complex.
+              <br/><br/>
+              I learned a lot about taking general responsibility and time management from this ticket, but outside of this feature, all other situations regarding engine additions and bug fixes were completed according to the story points that were set at the start of each sprint.
+
+              <br/><br/>
+              I was also responsible for implementing the <strong>terrain editor</strong> which allowed developers to easily swap out textures at each terrain level, rather than having to manually modify XML files to achieve the same effect.
+
+              <br/><br/>
+              <center><img src="../assets/img/zwift/terrain-editor-og.png" class="img-fluid" alt=""></center>
+              <br/>
+
+            </p>
+          <h2 style="font-size:20px">Gameplay Programming</h2>
+            <p>
+              During my time as a Gameplay Programmer, I got to learn NoesisGUI, a multi-platform XAML-based UI framework. NoesisGUI supports data binding meaning it can interact with data using MVVM patterns ensuring a clean separation of logic from UI.
+              <br/><br/>
+              IoCpp was required to implement the framework, which inverts the flow of control meaning that the game could receive the flow of control from the NoesisGUI framework allowing for real-time UI modifications.
+
+              <br/>
+              <center><img src="../assets/img/zwift/noesis-gui.png" class="img-fluid" alt=""></center>
+              <br/>
+            </p>
+          <h2 style="font-size:20px">UI Programming</h2>
+            <p>
+              As a UI Programmer, I worked on converting the editor menus to ImGUI. This was another technology that I got to learn, and more than that, I got involved in the process of removing old rendering code, decoupling the logic, and integrating ImGUI.
+              <br/><br/>
+              I found that generally after a menu conversion the class would no longer have a need to inherit functionality from various UI classes and instead could sit as a standalone implementation with just a header inclusion from the ImGUI library.
+              <br/><br/>
+              Consequently, this required a lot less code, and would typically reduce the amount in any given file by around 40%. After several menu conversions, and getting more accustomed to the library, I found better ways of doing things and would often reduce the line count by an even greater amount.
+              <br/>
+              <center><img src="../assets/img/zwift/imgui.png" class="img-fluid" style="max-width:75%;" alt=""></center>
+            </p>
+            <br/><h2 style="font-size:20px">Feel free to drop a comment below.</h2>
+            <div id="disqus_thread"></div><br/>
+            <script>
+
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+            var disqus_config = function () {
+              this.page.url = 'https://kyle-robinson.co.uk/html/non-euclidean-framework';  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = 22; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://https-kyle-robinson-co-uk.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <script id="dsq-count-scr" src="//https-kyle-robinson-co-uk.disqus.com/count.js" async></script>
+
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact">
+    <div class="social-links" style="margin-top:-55px;">
+      <a href="https://github.com/kyle-robinson" class="github" target="_blank"><i class="fa fa-github"></i></a> &nbsp;
+      <a href="https://www.linkedin.com/in/kylerobinsongames/" class="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a> &nbsp;
+      <a href="https://www.hackerrank.com/kylerobinson456?hr_r=1" class="hackerrank" target="_blank"><i class="fab fa-hackerrank"></i></a> &nbsp;
+      <a href="https://twitter.com/KyleRobinson42" class="twitter"><i class="fa fa-twitter" target="_blank"></i></a> &nbsp;
+      <a href="https://www.youtube.com/@kylerobinsongames" class="youtube" target="_blank"><i class="fa fa-youtube"></i></a> &nbsp;
+    </div>
+  </section><!-- End Contact Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="credits">
+        &copy; KYLE <span style="color:#ff9d00">ROBINSON</span> | PORTFOLIO
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/counterup/counterup.min.js"></script>
+  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/superfish/superfish.min.js"></script>
+  <script src="../assets/vendor/hoverIntent/hoverIntent.js"></script>
+  <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="../assets/vendor/venobox/venobox.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1150,6 +1150,14 @@ section {
   background: #F62459;
 }
 
+#portfolio .portfolio-item .portfolio-info-stampede {
+  background: #f74a4a;
+}
+
+#portfolio .portfolio-item .portfolio-info-zwift {
+  background: #f79b4a;
+}
+
 #portfolio .portfolio-item .portfolio-info-year3 {
   background: #954af7;
 }
