@@ -580,7 +580,7 @@ pre .dec { color: #98fb98 } /* decimal         - lightgreen */
 }
 
 .twitter:hover {
-  background: #1da1f2;
+  background: #111; /* changed from Twitter blue to a darker X-style colour */
   color: #fff;
 }
 
